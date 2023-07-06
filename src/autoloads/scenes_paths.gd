@@ -1,0 +1,7 @@
+extends Node
+
+
+var TitleMenu = preload("res://src/UI/TitleMenu.tscn")
+var MainGameUI = preload("res://src/UI/MainGameUI.tscn")
+var MainGame = preload("res://src/mainGame/MainGame.tscn")
+var IntroScreen = preload("res://src/transitions/IntroScreen.tscn")

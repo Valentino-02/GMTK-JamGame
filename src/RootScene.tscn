@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxsipss7qajdm"]
+
+[ext_resource type="Script" path="res://src/RootScene.gd" id="1_gi3ix"]
+
+[node name="RootScene" type="Node"]
+script = ExtResource("1_gi3ix")
+
+[node name="UI_Holder" type="CanvasLayer" parent="."]
