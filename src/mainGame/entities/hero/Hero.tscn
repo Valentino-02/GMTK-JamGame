@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://drdr270irnb58"]
+
+[ext_resource type="Script" path="res://src/mainGame/entities/hero/Hero.gd" id="1_33825"]
+[ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="1_vulhv"]
+[ext_resource type="PackedScene" uid="uid://b5ltrp8a64t2b" path="res://src/mainGame/entities/modules/AttackModule.tscn" id="3_bnwqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1qx4u"]
+radius = 75.1066
+
+[node name="Hero" type="CharacterBody2D"]
+script = ExtResource("1_33825")
+baseDamage = 1
+baseHealth = 10
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="TemporarySprite" type="Sprite2D" parent="."]
+modulate = Color(0.533333, 0.101961, 1, 1)
+texture = ExtResource("1_vulhv")
+
+[node name="AttackModule" parent="." instance=ExtResource("3_bnwqv")]
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_1qx4u")
+
+[connection signal="areaDetected" from="AttackModule" to="." method="_on_attack_module_area_detected"]
+[connection signal="areaExited" from="AttackModule" to="." method="_on_attack_module_area_exited"]
+[connection signal="doAttack" from="AttackModule" to="." method="_on_attack_module_do_attack"]

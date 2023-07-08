@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bigeakj21ra14"]
+[gd_scene load_steps=3 format=3 uid="uid://bigeakj21ra14"]
 
 [ext_resource type="Script" path="res://src/UI/MainGameUI.gd" id="1_pi1u7"]
+[ext_resource type="PackedScene" uid="uid://b7u4jpbkx823u" path="res://src/UI/EntityHolder.tscn" id="2_7brv4"]
 
 [node name="MainGameUI" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_pi1u7")
 
 [node name="Label" type="Label" parent="."]
@@ -18,3 +20,26 @@ offset_top = 32.0
 offset_right = 1102.0
 offset_bottom = 58.0
 text = "This is our game UI"
+
+[node name="ArtistEnergyLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 973.0
+offset_top = 107.0
+offset_right = 1013.0
+offset_bottom = 130.0
+text = "Energy: "
+
+[node name="EnemyHolder" parent="." instance=ExtResource("2_7brv4")]
+layout_mode = 1
+offset_left = 993.0
+offset_top = 266.0
+offset_right = -23.0
+offset_bottom = -246.0
+
+[node name="NextEnemyHolder" type="Label" parent="."]
+layout_mode = 0
+offset_left = 983.0
+offset_top = 239.0
+offset_right = 1125.0
+offset_bottom = 265.0
+text = "NextEnemyHolder"

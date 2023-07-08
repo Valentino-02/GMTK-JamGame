@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://caf56my2j70l6"]
+
+[ext_resource type="Script" path="res://src/mainGame/artist/Artist.gd" id="1_o3h74"]
+
+[node name="Artist" type="Node"]
+script = ExtResource("1_o3h74")
+startingEnergy = 50
+energyPerSecond = 1
+
+[node name="EnergyTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="EnergyTimer" to="." method="_on_energy_timer_timeout"]

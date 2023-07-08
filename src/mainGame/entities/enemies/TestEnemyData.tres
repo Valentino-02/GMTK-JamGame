@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://c3ds0ccraifby"]
+
+[ext_resource type="Script" path="res://src/mainGame/entities/enemies/EnemyData.gd" id="1_fbqjx"]
+
+[resource]
+script = ExtResource("1_fbqjx")
+name = "test enemy"
+baseHealth = 2
+baseDamage = 3
+baseBravery = 5
+deployCost = 25
+eraseCost = 5
