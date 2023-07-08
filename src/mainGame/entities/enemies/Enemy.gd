@@ -33,16 +33,21 @@ func _ready():
 
 func recieveDamage(damage: int) -> void:
 	stats.health -= damage
+	Particles.play_particles($GPUParticles2D, "health", false)
 
 
 func _connectSignals() -> void:
 	stats.died.connect(_die)
 
 func _erase() -> void:
+	Particles.play_death_particles($GPUParticles2D)
+	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
 	queue_free()
 	erased.emit(enemyData.eraseCost)
 
 func _die() -> void:
+	Particles.play_death_particles($GPUParticles2D)
+	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
 	queue_free()
 
 
@@ -52,5 +57,6 @@ func _on_artist_energy_changed(newValue) -> void:
 func _on_erase_button_pressed():
 	if not canErase: 
 		return
+	$%ClickParticles.emitting = true
 	_erase()
 

@@ -18,9 +18,9 @@ func display_next_monolog(text_array):
 		
 		for i in $%Label.get_total_character_count():
 			$%Label.visible_characters += 1
-			await get_tree().create_timer(text_speed)
+			await get_tree().create_timer(text_speed).timeout
 		
-		await get_tree().create_timer(end_cooldown)
+		await get_tree().create_timer(end_cooldown).timeout
 		reset_textbox()
 		text_index += 1
 
