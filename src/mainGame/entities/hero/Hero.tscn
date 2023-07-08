@@ -30,6 +30,8 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_1qx4u")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="areaDetected" from="AttackModule" to="." method="_on_attack_module_area_detected"]
 [connection signal="areaExited" from="AttackModule" to="." method="_on_attack_module_area_exited"]
 [connection signal="doAttack" from="AttackModule" to="." method="_on_attack_module_do_attack"]

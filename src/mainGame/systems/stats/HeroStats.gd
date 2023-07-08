@@ -25,3 +25,5 @@ var gold : int :
 	set(newValue):
 		gold = clamp(newValue, 0, 999)
 		statChanged.emit(Constants.HERO_STATS.gold, gold)
+
+# TODO add speed stat
