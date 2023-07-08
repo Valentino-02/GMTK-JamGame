@@ -87,3 +87,5 @@ libraries = {
 }
 
 [node name="Monolog" parent="." instance=ExtResource("4_ykf7q")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
