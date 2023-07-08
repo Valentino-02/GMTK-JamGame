@@ -11,7 +11,7 @@ var damageDown:Texture = load("res://assets/Particles/StatParticleDmg-.png")
 var goldUp:Texture = load("res://assets/Particles/StatParticleGold+.png")
 var goldDown:Texture = load("res://assets/Particles/StatParticleGold-.png")
 
-var dust:Texture
+var dust:Texture = load("res://assets/Particles/Dust.png")
 
 
 
