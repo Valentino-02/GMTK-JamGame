@@ -36,10 +36,25 @@ offset_top = 266.0
 offset_right = -23.0
 offset_bottom = -246.0
 
-[node name="NextEnemyHolder" type="Label" parent="."]
+[node name="NPCHolder" parent="." instance=ExtResource("2_7brv4")]
+layout_mode = 1
+offset_left = 993.0
+offset_top = 455.0
+offset_right = -23.0
+offset_bottom = -57.0
+
+[node name="NextEnemyLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 983.0
 offset_top = 239.0
 offset_right = 1125.0
 offset_bottom = 265.0
 text = "NextEnemyHolder"
+
+[node name="NextNPCLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 985.0
+offset_top = 423.0
+offset_right = 1127.0
+offset_bottom = 449.0
+text = "NextNPCHolder"

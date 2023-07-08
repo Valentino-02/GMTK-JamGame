@@ -13,3 +13,5 @@ script = ExtResource("1_umqn8")
 
 [node name="Hero" parent="." instance=ExtResource("3_8i8y7")]
 position = Vector2(78, 321)
+
+[node name="NPCHolder" type="Node2D" parent="."]

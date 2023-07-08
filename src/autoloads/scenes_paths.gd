@@ -7,3 +7,4 @@ var MainGameUI = preload("res://src/UI/MainGameUI.tscn")
 var MainGame = preload("res://src/mainGame/MainGame.tscn")
 
 var Enemy = preload("res://src/mainGame/entities/enemies/Enemy.tscn")
+var NPC = preload("res://src/mainGame/entities/NPCs/NPC.tscn")
