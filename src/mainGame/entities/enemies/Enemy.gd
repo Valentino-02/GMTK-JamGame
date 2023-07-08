@@ -4,12 +4,12 @@ class_name Enemy
 
 signal erased(cost)
 
-@export var enemyData: EnemyData
+@export var enemyData : EnemyData
 
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var eraseButtonCross = $EraseButton/Cross
 
-var stats : EnemyStats
+var stats := EnemyStats.new()
 
 var canErase : bool : 
 	set(newValue):
@@ -19,9 +19,6 @@ var canErase : bool :
 		if canErase == false:
 			eraseButtonCross.modulate = Color(1,1,1,0.5)
 
-
-func _init():
-	stats = EnemyStats.new()
 
 func _ready():
 	stats.health = enemyData.baseHealth

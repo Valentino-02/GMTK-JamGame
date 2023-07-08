@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn5k0fs4pomu"]
+
+[ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="1_7vg1j"]
+
+[node name="EraseButton" type="Button"]
+offset_left = 38.0
+offset_top = -74.0
+offset_right = 77.0
+offset_bottom = -37.0
+mouse_default_cursor_shape = 2
+text = "kill me"
+
+[node name="Cross" type="Sprite2D" parent="."]
+position = Vector2(32, 39)
+scale = Vector2(0.390625, 0.203125)
+texture = ExtResource("1_7vg1j")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://b0ioyl1jef1lv"]
+
+[ext_resource type="Script" path="res://src/mainGame/items/ItemData.gd" id="1_5uwh5"]
+
+[resource]
+script = ExtResource("1_5uwh5")
+bonusDamage = 2
+bonusDefence = 1
+bonusHealth = 5
+bonusBloodlust = 2
+itemCost = 25

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bseug5jig2jk2"]
+
+[ext_resource type="Script" path="res://src/mainGame/entities/NPCs/NPC.gd" id="1_gqg4k"]
+[ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="2_kshco"]
+[ext_resource type="Resource" uid="uid://cpws3b702jq3p" path="res://src/mainGame/entities/NPCs/TestNPCData.tres" id="2_m2ca1"]
+[ext_resource type="PackedScene" uid="uid://bn5k0fs4pomu" path="res://src/UI/EntityEraseBtn.tscn" id="3_gmpi4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3282"]
+radius = 70.0643
+
+[node name="NPC" type="Node2D"]
+script = ExtResource("1_gqg4k")
+npcData = ExtResource("2_m2ca1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="TemporarySprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0.956863, 0.101961, 1)
+texture = ExtResource("2_kshco")
+
+[node name="EraseButton" parent="." instance=ExtResource("3_gmpi4")]
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_w3282")
+
+[connection signal="pressed" from="EraseButton" to="." method="_on_erase_button_pressed"]

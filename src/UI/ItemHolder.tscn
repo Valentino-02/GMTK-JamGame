@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctmbrwcrwxg3l"]
+
+[ext_resource type="Script" path="res://src/UI/ItemHolder.gd" id="1_pcxx4"]
+[ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="2_3jf45"]
+
+[node name="ItemHolder" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pcxx4")
+
+[node name="ChangeItem" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 160.0
+offset_right = 121.0
+offset_bottom = 180.0
+
+[node name="Label" type="Label" parent="ChangeItem"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Change Item"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(66, 89)
+texture = ExtResource("2_3jf45")
+
+[connection signal="pressed" from="ChangeItem" to="." method="_on_change_item_pressed"]

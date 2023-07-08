@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl0yyj3bikhwy"]
+[gd_scene load_steps=6 format=3 uid="uid://cl0yyj3bikhwy"]
 
 [ext_resource type="Script" path="res://src/mainGame/entities/enemies/Enemy.gd" id="1_ivfwx"]
 [ext_resource type="Resource" uid="uid://c3ds0ccraifby" path="res://src/mainGame/entities/enemies/TestEnemyData.tres" id="2_bkrf4"]
 [ext_resource type="Material" uid="uid://ds5hywdnlufaq" path="res://assets/Particles/ExplosionParticles.tres" id="3_o36fb"]
+[ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="3_iqned"]
+[ext_resource type="PackedScene" uid="uid://bn5k0fs4pomu" path="res://src/UI/EntityEraseBtn.tscn" id="4_5ufjc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01lb4"]
 radius = 69.3542
@@ -16,7 +18,7 @@ enemyData = ExtResource("2_bkrf4")
 [node name="temporarySprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 
-[node name="EraseButton" type="Button" parent="."]
+[node name="EraseButton" type="Button" parent="." instance=ExtResource("4_5ufjc")]
 offset_left = 38.0
 offset_top = -74.0
 offset_right = 77.0

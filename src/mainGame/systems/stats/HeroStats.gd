@@ -4,8 +4,7 @@ class_name HeroStats
 signal heroDied
 signal statChanged(stat, newValue)
 signal statEmitParticle(stat:String, up:bool)
-
-
+signal goldChanged(newValue)
 
 var bloodlust : int :
 	set(newValue): 
@@ -18,6 +17,11 @@ var damage : int :
 		statEmitParticle.emit("damage", (damage < newValue))
 		damage = clamp(newValue, 0, 99)
 		statChanged.emit(Constants.HERO_STATS.damage, damage)
+
+var defence : int :
+	set(newValue):
+		health = clamp(newValue,0, 999)
+		statChanged.emit(Constants.HERO_STATS.defence, defence)
 
 var health : int :
 	set(newValue):
@@ -32,5 +36,4 @@ var gold : int :
 		statEmitParticle.emit("gold", (gold < newValue))
 		gold = clamp(newValue, 0, 999)
 		statChanged.emit(Constants.HERO_STATS.gold, gold)
-
-# TODO add speed stat
+		goldChanged.emit(gold)
