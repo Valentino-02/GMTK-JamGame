@@ -3,6 +3,7 @@ class_name HeroStats
 
 signal heroDied
 signal statChanged(stat, newValue)
+signal goldChanged(newValue)
 
 var bloodlust : int :
 	set(newValue): 
@@ -14,6 +15,11 @@ var damage : int :
 		damage = clamp(newValue, 0, 99)
 		statChanged.emit(Constants.HERO_STATS.damage, damage)
 
+var defence : int :
+	set(newValue):
+		health = clamp(newValue,0, 999)
+		statChanged.emit(Constants.HERO_STATS.defence, defence)
+
 var health : int :
 	set(newValue):
 		health = clamp(newValue,0, 999)
@@ -24,4 +30,4 @@ var health : int :
 var gold : int :
 	set(newValue):
 		gold = clamp(newValue, 0, 999)
-		statChanged.emit(Constants.HERO_STATS.gold, gold)
+		goldChanged.emit(gold)

@@ -1,15 +1,15 @@
 extends Node2D
-class_name Enemy
+class_name NPC
 
 
 signal erased(cost)
 
-@export var enemyData : EnemyData
+@export var npcData: NPCData
 
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var eraseButtonCross = $EraseButton/Cross
 
-var stats := EnemyStats.new()
+var stats := NPC_Stats.new()
 
 var canErase : bool : 
 	set(newValue):
@@ -21,33 +21,35 @@ var canErase : bool :
 
 
 func _ready():
-	stats.health = enemyData.baseHealth
-	stats.damage = enemyData.baseDamage
-	stats.bravery = enemyData.baseBravery
+	stats.murderability = npcData.baseMuerderability
+	stats.desiredGoodness = npcData.baseDesiredGoodness
 	
 	_connectSignals()
 
 
-func recieveDamage(damage: int) -> void:
-	stats.health -= damage
+func getsAttacked() -> void:
+	pass
+	_die()
+
+func givesReward() -> void:
+	_die()
 
 
 func _connectSignals() -> void:
-	stats.died.connect(_die)
+	pass
 
 func _erase() -> void:
 	queue_free()
-	erased.emit(enemyData.eraseCost)
+	erased.emit(npcData.eraseCost)
 
 func _die() -> void:
 	queue_free()
 
 
 func _on_artist_energy_changed(newValue) -> void:
-	canErase = newValue >= enemyData.eraseCost
+	canErase = newValue >= npcData.eraseCost
 
 func _on_erase_button_pressed():
 	if not canErase: 
 		return
 	_erase()
-
