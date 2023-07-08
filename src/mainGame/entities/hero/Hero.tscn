@@ -11,6 +11,7 @@ radius = 75.1066
 
 [node name="Hero" type="CharacterBody2D"]
 script = ExtResource("1_33825")
+baseBloodlust = 10
 baseDamage = 1
 baseHealth = 10
 
@@ -31,6 +32,14 @@ visible = false
 shape = SubResource("CircleShape2D_1qx4u")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 1.5
+one_shot = true
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="areaDetected" from="AttackModule" to="." method="_on_attack_module_area_detected"]
 [connection signal="areaExited" from="AttackModule" to="." method="_on_attack_module_area_exited"]

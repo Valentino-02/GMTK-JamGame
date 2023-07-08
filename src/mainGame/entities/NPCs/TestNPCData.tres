@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=2 format=3 uid="uid://cpws3b702jq3p"]
+
+[ext_resource type="Script" path="res://src/mainGame/entities/NPCs/NPC_Data.gd" id="1_ubhlg"]
+
+[resource]
+script = ExtResource("1_ubhlg")
+name = ""
+baseMuerderability = 2
+baseDesiredGoodness = 2
+deployCost = 5
+eraseCost = 7

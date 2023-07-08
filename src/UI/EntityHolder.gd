@@ -6,7 +6,7 @@ signal askCanDropHere(position: Vector2, entityData: Resource)
 
 @onready var sprite = $Sprite
 
-var holdedEntityData: Resource
+var holdedEntityData: Resource 
 var isPressed : bool :
 	set(newValue):
 		isPressed = newValue

@@ -1,7 +1,7 @@
 extends Node
 
 
-enum HERO_STATS {bloodlust, damage, health, gold}
+enum HERO_STATS {bloodlust, damage, health,defence, gold}
 
 enum ENEMY_STATS {bravery, damage, health}
 

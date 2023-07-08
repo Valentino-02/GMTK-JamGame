@@ -1,0 +1,32 @@
+[remap]
+
+importer="LDtk_world.import"
+type="PackedScene"
+uid="uid://bavimaufgys30"
+path="res://.godot/imported/mapGMTK.ldtk-8282d23786cbaa01fe3a1993787f46df.scn"
+
+[deps]
+
+files=["res://assets/mapGMTK/tilesets/mapGMTK-tileset-32x32.res", "res://assets/mapGMTK/tilesets/mapGMTK-tileset-16x16.res"]
+
+source_file="res://assets/mapGMTK.ldtk"
+dest_files=["res://.godot/imported/mapGMTK.ldtk-8282d23786cbaa01fe3a1993787f46df.scn", "res://assets/mapGMTK/tilesets/mapGMTK-tileset-32x32.res", "res://assets/mapGMTK/tilesets/mapGMTK-tileset-16x16.res"]
+
+[params]
+
+world_add_metadata=false
+world_post_import_script=""
+Tilesets=""
+tileset_add_metadata=true
+import_tileset_custom_data=true
+tileset_post_import_script=""
+Levels=""
+level_add_metadata=true
+import_all_levels=true
+levels_to_import="0,1"
+pack_levels=false
+level_post_import_script=""
+Entities=""
+import_entities=true
+entity_add_metadata=true
+entity_post_import_script=""

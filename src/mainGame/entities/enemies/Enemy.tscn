@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl0yyj3bikhwy"]
+[gd_scene load_steps=6 format=3 uid="uid://cl0yyj3bikhwy"]
 
 [ext_resource type="Script" path="res://src/mainGame/entities/enemies/Enemy.gd" id="1_ivfwx"]
 [ext_resource type="Resource" uid="uid://c3ds0ccraifby" path="res://src/mainGame/entities/enemies/TestEnemyData.tres" id="2_bkrf4"]
-[ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="3_iqned"]
+[ext_resource type="Material" uid="uid://ds5hywdnlufaq" path="res://assets/Particles/ExplosionParticles.tres" id="3_o36fb"]
+[ext_resource type="PackedScene" uid="uid://bn5k0fs4pomu" path="res://src/UI/EntityEraseBtn.tscn" id="4_5ufjc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01lb4"]
 radius = 69.3542
@@ -15,24 +16,32 @@ enemyData = ExtResource("2_bkrf4")
 
 [node name="temporarySprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
-texture = ExtResource("3_iqned")
 
-[node name="EraseButton" type="Button" parent="."]
-offset_left = 38.0
-offset_top = -74.0
-offset_right = 77.0
-offset_bottom = -37.0
-mouse_default_cursor_shape = 2
-text = "kill me"
+[node name="EraseButton" parent="." instance=ExtResource("4_5ufjc")]
 
 [node name="Cross" type="Sprite2D" parent="EraseButton"]
 position = Vector2(32, 39)
 scale = Vector2(0.390625, 0.203125)
-texture = ExtResource("3_iqned")
+
+[node name="ClickParticles" type="GPUParticles2D" parent="EraseButton"]
+unique_name_in_owner = true
+position = Vector2(29, 20)
+emitting = false
+process_material = ExtResource("3_o36fb")
+one_shot = true
+explosiveness = 1.0
 
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_01lb4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 1.5
+one_shot = true
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="pressed" from="EraseButton" to="." method="_on_erase_button_pressed"]

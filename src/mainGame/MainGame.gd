@@ -6,9 +6,13 @@ signal confirmEntityDrop
 signal destructionLevelChanged(newValue)
 signal nextInteraction
 signal nextMonolog
+signal reset_game
 
 @onready var artist : Artist = $Artist
 @onready var enemyHolder = $EnemyHolder
+@onready var npcHolder = $EnemyHolder
+@onready var structureHolder = $StructureHolder
+@onready var hero : Hero = $Hero
 
 var destructionLevel : int : 
 	set(newValue):
@@ -17,10 +21,6 @@ var destructionLevel : int :
 
 
 func _ready():
-	## This is just to test, will delete later
-	var enemy = ScenesPaths.Enemy.instantiate()
-	addEnemy(enemy, Vector2(200,200) )
-	
 	_connectSignals()
 
 
@@ -29,11 +29,19 @@ func createEnemy(enemyData: EnemyData) -> Enemy:
 	enemy.enemyData = enemyData
 	return enemy
 
-func addEnemy(enemy: Enemy, position: Vector2 = Vector2(0,0)) -> void:
-	enemy.erased.connect(artist._on_enemy_erased)
-	artist.energyChanged.connect(enemy._on_artist_energy_changed)
-	enemy.position = position
-	enemyHolder.add_child(enemy)
+func createNPC(npcData: NPCData) -> NPC:
+	var npc = ScenesPaths.NPC.instantiate()
+	npc.npcData = npcData
+	return npc
+
+func addEntity(entity, position: Vector2) -> void:
+	entity.erased.connect(artist._on_enemy_erased)
+	artist.energyChanged.connect(entity._on_artist_energy_changed)
+	entity.position = position
+	if entity is Enemy:
+		enemyHolder.add_child(entity)
+	if entity is NPC:
+		npcHolder.add_child(entity)
 
 
 func _connectSignals() -> void:
@@ -42,7 +50,12 @@ func _connectSignals() -> void:
 		artist.energyChanged.connect(gameUI._on_artist_energy_changed)
 		
 		gameUI.enemyHolder.askCanDropHere.connect(_on_ask_can_drop_here)
+		gameUI.npcHolder.askCanDropHere.connect(_on_ask_can_drop_here)
 		confirmEntityDrop.connect(gameUI.enemyHolder._on_drop_confirmation)
+		confirmEntityDrop.connect(gameUI.npcHolder._on_drop_confirmation)
+		
+		hero.heroStats.goldChanged.connect(gameUI._on_hero_gold_changed)
+		gameUI.itemHolder.itemPurchased.connect(hero._on_item_purchased)
 
 
 func _on_ask_can_drop_here(position: Vector2, entityData: Resource) -> void:
@@ -50,16 +63,26 @@ func _on_ask_can_drop_here(position: Vector2, entityData: Resource) -> void:
 	if entityData is EnemyData:
 		artist.energy -= entityData.deployCost
 		var enemy = createEnemy(entityData)
-		addEnemy(enemy, position)
+		addEntity(enemy, position)
 		confirmEntityDrop.emit()
-	
+	if entityData is NPCData:
+		artist.energy -= entityData.deployCost
+		var npc = createNPC(entityData)
+		addEntity(npc, position)
+		confirmEntityDrop.emit()
 
 func wait_next_monolog():
-	$MainPath.pause()
-	await nextMonolog
-	$MainPath.play()
+	nextMonolog.emit()
+	
+	# probably won't be useful since we're not stopping the Hero during the monologs
+#	$MainPath.pause()
+#	await nextMonolog
+#	$MainPath.play()
 
-func wait_next_interaction(): # probably won't be useful since we're not stopping the Hero during the monologs
+func wait_next_interaction():
 	$MainPath.pause()
 	await nextInteraction
 	$MainPath.play()
+
+func _reset_game():
+	reset_game.emit()
