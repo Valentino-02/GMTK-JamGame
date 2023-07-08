@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bseug5jig2jk2"]
+[gd_scene load_steps=7 format=3 uid="uid://bseug5jig2jk2"]
 
 [ext_resource type="Script" path="res://src/mainGame/entities/NPCs/NPC.gd" id="1_gqg4k"]
 [ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="2_kshco"]
 [ext_resource type="Resource" uid="uid://cpws3b702jq3p" path="res://src/mainGame/entities/NPCs/TestNPCData.tres" id="2_m2ca1"]
 [ext_resource type="PackedScene" uid="uid://bn5k0fs4pomu" path="res://src/UI/EntityEraseBtn.tscn" id="3_gmpi4"]
+[ext_resource type="Material" uid="uid://ds5hywdnlufaq" path="res://assets/Particles/ExplosionParticles.tres" id="5_148en"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w3282"]
 radius = 70.0643
@@ -20,9 +21,25 @@ texture = ExtResource("2_kshco")
 
 [node name="EraseButton" parent="." instance=ExtResource("3_gmpi4")]
 
+[node name="ClickParticles" type="GPUParticles2D" parent="EraseButton"]
+unique_name_in_owner = true
+position = Vector2(-9, 94)
+emitting = false
+process_material = ExtResource("5_148en")
+one_shot = true
+explosiveness = 1.0
+
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_w3282")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 1.5
+one_shot = true
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="pressed" from="EraseButton" to="." method="_on_erase_button_pressed"]

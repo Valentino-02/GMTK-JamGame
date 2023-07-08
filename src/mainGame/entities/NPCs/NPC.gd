@@ -39,10 +39,14 @@ func _connectSignals() -> void:
 	pass
 
 func _erase() -> void:
+	Particles.play_death_particles($GPUParticles2D)
+	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
 	queue_free()
 	erased.emit(npcData.eraseCost)
 
 func _die() -> void:
+	Particles.play_death_particles($GPUParticles2D)
+	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
 	queue_free()
 
 
@@ -52,4 +56,5 @@ func _on_artist_energy_changed(newValue) -> void:
 func _on_erase_button_pressed():
 	if not canErase: 
 		return
+	$%ClickParticles.emitting = true
 	_erase()
