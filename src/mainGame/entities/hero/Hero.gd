@@ -2,6 +2,9 @@ extends CharacterBody2D
 class_name Hero
 
 
+signal heroStartedCombat 
+signal heroStoppedCombat
+
 @export_range(0,99) var baseBloodlust : int
 @export_range(0,99) var baseDamage : int
 @export_range(0,999) var baseHealth : int
@@ -16,8 +19,10 @@ var isInCombat : bool :
 		isInCombat = newValue
 		if isInCombat:
 			attackModule.start()
+			heroStartedCombat.emit()
 		else:
 			attackModule.stop()
+			heroStoppedCombat.emit()
 
 var enemiesDetected : Array[Enemy] :
 	set(newValue):
