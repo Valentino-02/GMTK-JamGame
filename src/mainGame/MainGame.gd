@@ -8,6 +8,7 @@ signal destructionLevelChanged(newValue)
 @onready var artist : Artist = $Artist
 @onready var enemyHolder = $EnemyHolder
 @onready var npcHolder = $EnemyHolder
+@onready var structureHolder = $StructureHolder
 
 var destructionLevel : int : 
 	set(newValue):

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy6rfg8vo74ya"]
+[gd_scene load_steps=5 format=3 uid="uid://cy6rfg8vo74ya"]
 
 [ext_resource type="Script" path="res://src/mainGame/MainGame.gd" id="1_umqn8"]
 [ext_resource type="PackedScene" uid="uid://caf56my2j70l6" path="res://src/mainGame/artist/Artist.tscn" id="2_2kxur"]
 [ext_resource type="PackedScene" uid="uid://drdr270irnb58" path="res://src/mainGame/entities/hero/Hero.tscn" id="3_8i8y7"]
+[ext_resource type="PackedScene" uid="uid://b5tbjgx1bwpo3" path="res://src/mainGame/entities/structures/Structure.tscn" id="4_cq67h"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_umqn8")
@@ -15,3 +16,8 @@ script = ExtResource("1_umqn8")
 position = Vector2(78, 321)
 
 [node name="NPCHolder" type="Node2D" parent="."]
+
+[node name="StructureHolder" type="Node2D" parent="."]
+
+[node name="Structure" parent="StructureHolder" instance=ExtResource("4_cq67h")]
+position = Vector2(350, 449)

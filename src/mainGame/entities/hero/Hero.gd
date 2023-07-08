@@ -15,6 +15,7 @@ signal heroLostNPC
 @onready var attackModule : AttackModule = $AttackModule
 
 var heroStats := HeroStats.new()
+
 var isWithNPC: bool :
 	set(newValue):
 		isWithNPC = newValue
@@ -33,7 +34,7 @@ var isInCombat : bool :
 			attackModule.stop()
 			heroStoppedCombat.emit()
 
-var enemiesDetected : Array[Enemy] :
+var enemiesDetected : Array :
 	set(newValue):
 		enemiesDetected = newValue
 		if enemiesDetected.size() == 0:
@@ -74,7 +75,7 @@ func _on_attack_module_do_attack():
 	selectedEnemy.recieveDamage(heroStats.damage)
 
 func _on_attack_module_area_detected(area):
-	if area.owner is Enemy:
+	if area.owner is Enemy or area.owner is Structure:
 		var oldEnemies = enemiesDetected.duplicate()
 		oldEnemies.append(area.owner)
 		enemiesDetected = oldEnemies
@@ -95,9 +96,10 @@ func _on_attack_module_area_detected(area):
 				isWithNPC = false ## just for now, then later we would need to wait for an animation or dialogue
 
 func _on_attack_module_area_exited(area):
-	if area.owner is Enemy:
+	if area.owner is Enemy or area.owner is Structure:
 		var enemy = area.owner
 		if enemiesDetected.has(enemy):
 			var oldEnemies = enemiesDetected.duplicate()
 			oldEnemies.erase(enemy)
 			enemiesDetected = oldEnemies
+
