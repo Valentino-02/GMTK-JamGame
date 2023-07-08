@@ -1,0 +1,21 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://qtusgap2f01y"]
+
+[sub_resource type="Curve" id="Curve_iah6g"]
+_data = [Vector2(0, 0.481818), 0.0, 0.0, 0, 0, Vector2(0.127907, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0ucl3"]
+curve = SubResource("Curve_iah6g")
+
+[resource]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 98, 0)
+initial_velocity_min = 153.06
+initial_velocity_max = 153.06
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -38.78
+tangential_accel_max = 0.31
+damping_max = 51.71
+scale_curve = SubResource("CurveTexture_0ucl3")

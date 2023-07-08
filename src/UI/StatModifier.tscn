@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfnroxiipq6gt"]
+[gd_scene load_steps=8 format=3 uid="uid://cfnroxiipq6gt"]
 
 [ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="1_16xhk"]
 [ext_resource type="Script" path="res://src/UI/StatModifier.gd" id="2_84lq8"]
@@ -14,6 +14,18 @@ data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_ndslv"]
 image = SubResource("Image_wystr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tfx4m"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -100.0
+scale_min = 3.0
+scale_max = 3.0
 
 [sub_resource type="Image" id="Image_7umli"]
 data = {
@@ -53,6 +65,13 @@ unique_name_in_owner = true
 layout_mode = 2
 icon = SubResource("ImageTexture_ndslv")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BoxContainer/Minus"]
+position = Vector2(10.5, 13)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_tfx4m")
+one_shot = true
+explosiveness = 1.0
+
 [node name="Label" type="Label" parent="BoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -62,3 +81,13 @@ text = "StatName : xxx"
 unique_name_in_owner = true
 layout_mode = 2
 icon = SubResource("ImageTexture_o4i3m")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BoxContainer/Plus"]
+position = Vector2(12.5, 13)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_tfx4m")
+one_shot = true
+explosiveness = 1.0
+
+[connection signal="pressed" from="BoxContainer/Minus" to="." method="_on_minus_pressed"]
+[connection signal="pressed" from="BoxContainer/Plus" to="." method="_on_plus_pressed"]

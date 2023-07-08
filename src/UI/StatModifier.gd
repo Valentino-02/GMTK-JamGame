@@ -11,3 +11,11 @@ func construct(_name:String, starter:int, _size:Vector2):
 	stat = _name
 	set_value(starter)
 	size = _size
+
+
+func _on_minus_pressed():
+	$%Minus.get_node("GPUParticles2D").emitting = true
+
+
+func _on_plus_pressed():
+	$%Plus.get_node("GPUParticles2D").emitting = true
