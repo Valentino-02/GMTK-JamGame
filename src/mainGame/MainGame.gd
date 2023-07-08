@@ -55,11 +55,14 @@ func _on_ask_can_drop_here(position: Vector2, entityData: Resource) -> void:
 	
 
 func wait_next_monolog():
-	$MainPath.pause()
-	await nextMonolog
-	$MainPath.play()
+	nextMonolog.emit()
+	
+	# probably won't be useful since we're not stopping the Hero during the monologs
+#	$MainPath.pause()
+#	await nextMonolog
+#	$MainPath.play()
 
-func wait_next_interaction(): # probably won't be useful since we're not stopping the Hero during the monologs
+func wait_next_interaction():
 	$MainPath.pause()
 	await nextInteraction
 	$MainPath.play()

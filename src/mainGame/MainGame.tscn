@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy6rfg8vo74ya"]
+[gd_scene load_steps=9 format=3 uid="uid://cy6rfg8vo74ya"]
 
 [ext_resource type="Script" path="res://src/mainGame/MainGame.gd" id="1_umqn8"]
 [ext_resource type="PackedScene" uid="uid://caf56my2j70l6" path="res://src/mainGame/artist/Artist.tscn" id="2_2kxur"]
@@ -27,7 +27,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3.1),
+"times": PackedFloat32Array(4.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -41,7 +41,7 @@ tracks/2/path = NodePath("Monolog")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -70,6 +70,8 @@ _data = {
 "RESET": SubResource("Animation_ggpem")
 }
 
+[sub_resource type="TileSet" id="TileSet_hscs7"]
+
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_umqn8")
 
@@ -89,3 +91,10 @@ libraries = {
 [node name="Monolog" parent="." instance=ExtResource("4_ykf7q")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_hscs7")
+format = 2
+
+[node name="BackgroundAssets" type="Node2D" parent="."]
+y_sort_enabled = true

@@ -40,5 +40,5 @@ func read_ending2():
 
 func display_chara(type:String):
 	match type:
-		"H": $%Chara.texture = null
-		"C": $%Chara.texture = null # TODO
+		"H": $%Chara.texture = null # TODO
+		"C": $%Chara.texture = null
