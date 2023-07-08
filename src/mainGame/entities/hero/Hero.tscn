@@ -14,6 +14,7 @@ script = ExtResource("1_33825")
 baseBloodlust = 10
 baseDamage = 1
 baseHealth = 10
+baseGold = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vxxej")

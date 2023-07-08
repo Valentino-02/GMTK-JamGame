@@ -14,63 +14,55 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_pi1u7")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 955.0
-offset_top = 32.0
-offset_right = 1102.0
-offset_bottom = 58.0
-text = "This is our game UI"
-
 [node name="ArtistEnergyLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 973.0
-offset_top = 107.0
-offset_right = 1013.0
-offset_bottom = 130.0
+offset_left = 14.0
+offset_top = 15.0
+offset_right = 76.0
+offset_bottom = 41.0
 text = "Energy: "
 
 [node name="EnemyHolder" parent="." instance=ExtResource("2_7brv4")]
 layout_mode = 1
-offset_left = 993.0
-offset_top = 266.0
-offset_right = -23.0
-offset_bottom = -246.0
+offset_left = 874.0
+offset_top = 43.0
+offset_right = -142.0
+offset_bottom = -469.0
 
 [node name="NPCHolder" parent="." instance=ExtResource("2_7brv4")]
 layout_mode = 1
-offset_left = 993.0
-offset_top = 455.0
-offset_right = -23.0
-offset_bottom = -57.0
+offset_left = 876.0
+offset_top = 230.0
+offset_right = -140.0
+offset_bottom = -282.0
 
 [node name="NextEnemyLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 983.0
-offset_top = 239.0
-offset_right = 1125.0
-offset_bottom = 265.0
+offset_left = 870.0
+offset_top = 16.0
+offset_right = 1012.0
+offset_bottom = 42.0
 text = "NextEnemyHolder"
 
 [node name="NextNPCLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 985.0
-offset_top = 423.0
-offset_right = 1127.0
-offset_bottom = 449.0
+offset_left = 870.0
+offset_top = 200.0
+offset_right = 1012.0
+offset_bottom = 226.0
 text = "NextNPCHolder"
 
 [node name="ItemHolder" parent="." instance=ExtResource("3_c5ald")]
 layout_mode = 1
-offset_left = 809.0
-offset_top = 448.0
-offset_right = 809.0
-offset_bottom = 448.0
+offset_left = 873.0
+offset_top = 388.0
+offset_right = 873.0
+offset_bottom = 388.0
 
 [node name="HeroGoldLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 706.0
-offset_top = 542.0
-offset_right = 751.0
-offset_bottom = 568.0
+offset_left = 797.0
+offset_top = 516.0
+offset_right = 842.0
+offset_bottom = 542.0
 text = "Gold: "

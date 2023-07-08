@@ -22,7 +22,6 @@ func change_main_scene(new_scene: PackedScene) -> void:
 	if GlobalScenes.CurrentMainScene != null:
 		GlobalScenes.CurrentMainScene.queue_free()
 	var new_main_scene = new_scene.instantiate()
-	new_main_scene.reset_game.connect(_start_game)
 	add_child(new_main_scene)
 	GlobalScenes.CurrentMainScene = new_main_scene
 

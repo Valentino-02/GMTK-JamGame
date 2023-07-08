@@ -11,6 +11,7 @@ var energy: int :
 	set(newValue) :
 		energy = clamp(newValue, 0, 999)
 		energyChanged.emit(energy)
+		print(newValue)
 
 
 func _ready():
