@@ -1,5 +1,6 @@
 extends NinePatchRect
 
+# didn't add signals 'cause I assume we'd just use the ones from the buttons
 
 var stat:String
 
