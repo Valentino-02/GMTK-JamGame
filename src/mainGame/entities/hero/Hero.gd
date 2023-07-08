@@ -16,6 +16,8 @@ signal heroLostNPC
 
 var heroStats := HeroStats.new()
 
+var items : Array[ItemData]
+
 var isWithNPC: bool :
 	set(newValue):
 		isWithNPC = newValue
@@ -67,6 +69,16 @@ func _shouldGetReward(npc: NPC) -> bool:
 	else:
 		return false
 
+func _addItem(itemData) -> void:
+	items.append(itemData)
+	heroStats.bloodlust += itemData.bonusBloodlust
+	heroStats.damage = itemData.bonusDamage
+	heroStats.health = itemData.bonusHealth
+
+
+func _on_item_purchased(itemData: ItemData, cost: int) -> void:
+	heroStats.gold -= cost
+	_addItem(itemData)
 
 func _on_attack_module_do_attack():
 	if enemiesDetected.size() == 0:

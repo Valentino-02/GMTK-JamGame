@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bigeakj21ra14"]
+[gd_scene load_steps=4 format=3 uid="uid://bigeakj21ra14"]
 
 [ext_resource type="Script" path="res://src/UI/MainGameUI.gd" id="1_pi1u7"]
 [ext_resource type="PackedScene" uid="uid://b7u4jpbkx823u" path="res://src/UI/EntityHolder.tscn" id="2_7brv4"]
+[ext_resource type="PackedScene" uid="uid://ctmbrwcrwxg3l" path="res://src/UI/ItemHolder.tscn" id="3_c5ald"]
 
 [node name="MainGameUI" type="Control"]
 layout_mode = 3
@@ -58,3 +59,18 @@ offset_top = 423.0
 offset_right = 1127.0
 offset_bottom = 449.0
 text = "NextNPCHolder"
+
+[node name="ItemHolder" parent="." instance=ExtResource("3_c5ald")]
+layout_mode = 1
+offset_left = 809.0
+offset_top = 448.0
+offset_right = 809.0
+offset_bottom = 448.0
+
+[node name="HeroGoldLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 542.0
+offset_right = 751.0
+offset_bottom = 568.0
+text = "Gold: "

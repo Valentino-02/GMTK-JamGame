@@ -9,6 +9,7 @@ signal destructionLevelChanged(newValue)
 @onready var enemyHolder = $EnemyHolder
 @onready var npcHolder = $EnemyHolder
 @onready var structureHolder = $StructureHolder
+@onready var hero : Hero = $Hero
 
 var destructionLevel : int : 
 	set(newValue):
@@ -49,6 +50,9 @@ func _connectSignals() -> void:
 		gameUI.npcHolder.askCanDropHere.connect(_on_ask_can_drop_here)
 		confirmEntityDrop.connect(gameUI.enemyHolder._on_drop_confirmation)
 		confirmEntityDrop.connect(gameUI.npcHolder._on_drop_confirmation)
+		
+		hero.heroStats.goldChanged.connect(gameUI._on_hero_gold_changed)
+		gameUI.itemHolder.itemPurchased.connect(hero._on_item_purchased)
 
 
 func _on_ask_can_drop_here(position: Vector2, entityData: Resource) -> void:
