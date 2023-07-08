@@ -12,7 +12,8 @@ func display_next_monolog(text_array):
 	for t in text_array:
 		await GlobalScenes.CurrentMainScene.nextMonolog
 		$%AnimationPlayer.play_backwards("Fade")
-		$%Label.text = text_array[text_index]
+		$%Label.text = text_array[text_index][1]
+		display_chara(text_array[text_index][0])
 		await $%AnimationPlayer.animation_finished
 		
 		for i in $%Label.get_total_character_count():
@@ -36,3 +37,8 @@ func read_ending1():
 
 func read_ending2():
 	display_next_monolog(STORY.ENDING2)
+
+func display_chara(type:String):
+	match type:
+		"H": $%Chara.texture = null
+		"C": $%Chara.texture = null # TODO

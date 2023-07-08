@@ -78,3 +78,11 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_hguno")
 }
+
+[node name="Chara" type="TextureRect" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 639.0
+offset_top = -36.0
+offset_right = 679.0
+offset_bottom = 4.0
