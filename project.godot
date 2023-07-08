@@ -21,6 +21,12 @@ GlobalScenes="*res://src/autoloads/global_scenes.gd"
 ScenesPaths="*res://src/autoloads/scenes_paths.gd"
 Constants="*res://src/autoloads/constants.gd"
 
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=600
+window/stretch/mode="canvas_items"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
