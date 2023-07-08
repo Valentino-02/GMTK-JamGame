@@ -47,4 +47,6 @@ amount = 1
 lifetime = 1.5
 one_shot = true
 
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="pressed" from="EraseButton" to="." method="_on_erase_button_pressed"]

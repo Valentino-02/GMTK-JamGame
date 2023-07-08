@@ -38,6 +38,8 @@ amount = 1
 lifetime = 1.5
 one_shot = true
 
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="areaDetected" from="AttackModule" to="." method="_on_attack_module_area_detected"]
 [connection signal="areaExited" from="AttackModule" to="." method="_on_attack_module_area_exited"]
 [connection signal="doAttack" from="AttackModule" to="." method="_on_attack_module_do_attack"]
