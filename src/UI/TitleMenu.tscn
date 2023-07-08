@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1e0pb7rqxgkr"]
+[gd_scene load_steps=3 format=3 uid="uid://d1e0pb7rqxgkr"]
 
 [ext_resource type="Script" path="res://src/UI/TitleMenu.gd" id="1_7um3g"]
+[ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="2_mcnju"]
 
-[node name="TitleMenu" type="Control"]
-layout_mode = 3
+[node name="TitleMenu" type="CenterContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,10 +11,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7um3g")
 
+[node name="BackgroundWall" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1024, 600)
+layout_mode = 2
+texture = ExtResource("2_mcnju")
+
 [node name="StartGameBtn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 95.0
-offset_top = 34.0
-offset_right = 207.0
-offset_bottom = 50.0
+layout_mode = 2
 text = "Start Game, maybe"

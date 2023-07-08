@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpqmk34nhv3yy"]
+[gd_scene load_steps=4 format=3 uid="uid://dpqmk34nhv3yy"]
 
 [ext_resource type="Script" path="res://src/transitions/IntroScreen.gd" id="1_pfh3g"]
-[ext_resource type="Texture2D" uid="uid://b53gr6y8mkive" path="res://assets/introScreen/jamLogo.png" id="2_8o2o0"]
-[ext_resource type="Texture2D" uid="uid://clhckix07wwnn" path="res://assets/introScreen/GodotLogo.png" id="3_guy3w"]
 
 [sub_resource type="Animation" id="Animation_34tem"]
 resource_name = "Intro"
@@ -38,9 +36,7 @@ libraries = {
 [node name="Jam2023" type="Sprite2D" parent="."]
 position = Vector2(450, 246)
 scale = Vector2(0.163658, 0.163658)
-texture = ExtResource("2_8o2o0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(934, 554)
 scale = Vector2(0.137207, 0.137207)
-texture = ExtResource("3_guy3w")

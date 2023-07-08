@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://drdr270irnb58"]
+[gd_scene load_steps=6 format=3 uid="uid://drdr270irnb58"]
 
 [ext_resource type="Script" path="res://src/mainGame/entities/hero/Hero.gd" id="1_33825"]
 [ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="1_vulhv"]
 [ext_resource type="PackedScene" uid="uid://b5ltrp8a64t2b" path="res://src/mainGame/entities/modules/AttackModule.tscn" id="3_bnwqv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vxxej"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1qx4u"]
 radius = 75.1066
@@ -14,14 +16,17 @@ baseDamage = 1
 baseHealth = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vxxej")
 
 [node name="TemporarySprite" type="Sprite2D" parent="."]
 modulate = Color(0.533333, 0.101961, 1, 1)
 texture = ExtResource("1_vulhv")
 
 [node name="AttackModule" parent="." instance=ExtResource("3_bnwqv")]
+visible = false
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_1qx4u")

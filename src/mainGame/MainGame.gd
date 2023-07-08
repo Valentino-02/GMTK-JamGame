@@ -4,6 +4,8 @@ class_name MainGame
 
 signal confirmEntityDrop
 signal destructionLevelChanged(newValue)
+signal nextInteraction
+signal nextMonolog
 
 @onready var artist : Artist = $Artist
 @onready var enemyHolder = $EnemyHolder

@@ -1,9 +1,74 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy6rfg8vo74ya"]
+[gd_scene load_steps=8 format=3 uid="uid://cy6rfg8vo74ya"]
 
 [ext_resource type="Script" path="res://src/mainGame/MainGame.gd" id="1_umqn8"]
 [ext_resource type="PackedScene" uid="uid://caf56my2j70l6" path="res://src/mainGame/artist/Artist.tscn" id="2_2kxur"]
 [ext_resource type="PackedScene" uid="uid://drdr270irnb58" path="res://src/mainGame/entities/hero/Hero.tscn" id="3_8i8y7"]
-[ext_resource type="PackedScene" uid="uid://b5tbjgx1bwpo3" path="res://src/mainGame/entities/structures/Structure.tscn" id="4_cq67h"]
+[ext_resource type="PackedScene" uid="uid://c7lm71kklyqd6" path="res://src/UI/Monolog.tscn" id="4_ykf7q"]
+
+[sub_resource type="Animation" id="Animation_jolqv"]
+resource_name = "Main"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hero:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(78, 321), Vector2(515, 555), Vector2(786, 313)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"wait_next_monolog"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Monolog")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"read_monologs"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ggpem"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hero:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(786, 313)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41bma"]
+_data = {
+"Main": SubResource("Animation_jolqv"),
+"RESET": SubResource("Animation_ggpem")
+}
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_umqn8")
@@ -13,11 +78,12 @@ script = ExtResource("1_umqn8")
 [node name="EnemyHolder" type="Node2D" parent="."]
 
 [node name="Hero" parent="." instance=ExtResource("3_8i8y7")]
-position = Vector2(78, 321)
+position = Vector2(786, 313)
 
-[node name="NPCHolder" type="Node2D" parent="."]
+[node name="MainPath" type="AnimationPlayer" parent="."]
+autoplay = "Main"
+libraries = {
+"": SubResource("AnimationLibrary_41bma")
+}
 
-[node name="StructureHolder" type="Node2D" parent="."]
-
-[node name="Structure" parent="StructureHolder" instance=ExtResource("4_cq67h")]
-position = Vector2(350, 449)
+[node name="Monolog" parent="." instance=ExtResource("4_ykf7q")]
