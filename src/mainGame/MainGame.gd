@@ -6,6 +6,7 @@ signal confirmEntityDrop
 signal destructionLevelChanged(newValue)
 signal nextInteraction
 signal nextMonolog
+signal reset_game
 
 @onready var artist : Artist = $Artist
 @onready var enemyHolder = $EnemyHolder
@@ -69,3 +70,19 @@ func _on_ask_can_drop_here(position: Vector2, entityData: Resource) -> void:
 		var npc = createNPC(entityData)
 		addEntity(npc, position)
 		confirmEntityDrop.emit()
+
+func wait_next_monolog():
+	nextMonolog.emit()
+	
+	# probably won't be useful since we're not stopping the Hero during the monologs
+#	$MainPath.pause()
+#	await nextMonolog
+#	$MainPath.play()
+
+func wait_next_interaction():
+	$MainPath.pause()
+	await nextInteraction
+	$MainPath.play()
+
+func _reset_game():
+	reset_game.emit()

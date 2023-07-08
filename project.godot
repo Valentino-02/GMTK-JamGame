@@ -20,12 +20,17 @@ config/icon="res://icon.svg"
 GlobalScenes="*res://src/autoloads/global_scenes.gd"
 ScenesPaths="*res://src/autoloads/scenes_paths.gd"
 Constants="*res://src/autoloads/constants.gd"
+Particles="*res://src/UI/ParticlesList.gd"
 
 [display]
 
 window/size/viewport_width=1024
 window/size/viewport_height=600
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/editor_icon_previewer/plugin.cfg", "res://addons/super_spector/plugin.cfg", "res://addons/amano-ldtk-importer/plugin.cfg")
 
 [rendering]
 

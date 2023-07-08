@@ -50,6 +50,11 @@ func _ready():
 	heroStats.damage = baseDamage
 	heroStats.health = baseHealth
 	heroStats.gold = baseGold
+	
+	heroStats.statEmitParticle.connect(emit_stat_particle)
+
+func emit_stat_particle(type:String, up:bool):
+	Particles.play_particles($GPUParticles2D, type, up)
 
 func _process(delta):
 	## just for testing
