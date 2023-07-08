@@ -6,6 +6,7 @@ signal confirmEntityDrop
 signal destructionLevelChanged(newValue)
 signal nextInteraction
 signal nextMonolog
+signal reset_game
 
 @onready var artist : Artist = $Artist
 @onready var enemyHolder = $EnemyHolder
@@ -66,3 +67,6 @@ func wait_next_interaction():
 	$MainPath.pause()
 	await nextInteraction
 	$MainPath.play()
+
+func _reset_game():
+	reset_game.emit()

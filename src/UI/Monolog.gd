@@ -32,11 +32,17 @@ func reset_textbox():
 func read_monologs():
 	display_next_monolog(STORY.MONOLOGS)
 
+func read_choice_ending():
+	display_next_monolog(STORY.CHOICE)
+
 func read_ending1():
 	display_next_monolog(STORY.ENDING1)
 
 func read_ending2():
 	display_next_monolog(STORY.ENDING2)
+
+func read_fail_ending():
+	display_next_monolog(STORY.FAIL)
 
 func display_chara(type:String):
 	match type:

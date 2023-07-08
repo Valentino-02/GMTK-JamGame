@@ -17,3 +17,13 @@ const ENDING1:Array[String] = [
 const ENDING2:Array[String] = [
 	
 ]
+
+
+const CHOICE:Array[String] = [
+	
+]
+
+
+const FAIL:Array[String] = [
+	
+]
