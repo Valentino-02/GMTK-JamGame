@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://drdr270irnb58"]
+[gd_scene load_steps=37 format=3 uid="uid://drdr270irnb58"]
 
 [ext_resource type="Script" path="res://src/mainGame/entities/hero/Hero.gd" id="1_33825"]
 [ext_resource type="Texture2D" uid="uid://dkaq2d8w00ngt" path="res://assets/Characters/Protag_Idle.png" id="2_a2jo2"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b5ltrp8a64t2b" path="res://src/mainGame/entities/modules/AttackModule.tscn" id="3_bnwqv"]
 [ext_resource type="Texture2D" uid="uid://cus88rn2hx4a8" path="res://assets/Characters/Protag_DamageTaken.png" id="3_qyyyv"]
 [ext_resource type="Texture2D" uid="uid://djothv4xaon4" path="res://assets/Characters/Protag_Move.png" id="5_epd5n"]
+[ext_resource type="Texture2D" uid="uid://cpy1gy5mvj4m2" path="res://assets/UI/Health-empty.png" id="7_wusxn"]
+[ext_resource type="Texture2D" uid="uid://evad3n7mv0ls" path="res://assets/UI/Health-full.png" id="8_551ay"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68q15"]
 atlas = ExtResource("2_e4o61")
@@ -281,13 +283,15 @@ one_shot = true
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
-[node name="Lifebar" type="ProgressBar" parent="."]
+[node name="Lifebar" type="TextureProgressBar" parent="."]
 offset_left = -63.0
 offset_top = -97.0
 offset_right = 60.0
 offset_bottom = -70.0
+texture_under = ExtResource("7_wusxn")
+texture_progress = ExtResource("8_551ay")
 
-[node name="BloodlustBar" type="ProgressBar" parent="."]
+[node name="BloodlustBar" type="TextureProgressBar" parent="."]
 offset_left = -62.0
 offset_top = -132.0
 offset_right = 61.0

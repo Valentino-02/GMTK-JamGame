@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cfnroxiipq6gt"]
 
-[ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="1_16xhk"]
+[ext_resource type="Texture2D" uid="uid://vffxsrhpkpat" path="res://assets/UI/blunkbutton.png" id="1_ijn10"]
 [ext_resource type="Script" path="res://src/UI/StatModifier.gd" id="2_84lq8"]
 [ext_resource type="Material" uid="uid://ds5hywdnlufaq" path="res://assets/Particles/ExplosionParticles.tres" id="3_sw1wf"]
 [ext_resource type="AudioStream" uid="uid://bmcn2m2puthnw" path="res://assets/Audio/SFX/ClickMinus.tres" id="4_hx8nb"]
@@ -31,10 +31,14 @@ data = {
 image = SubResource("Image_o7j78")
 
 [node name="NinePatchRect" type="NinePatchRect"]
-self_modulate = Color(0.294118, 0.294118, 0.294118, 1)
 offset_right = 202.0
 offset_bottom = 104.0
-texture = ExtResource("1_16xhk")
+texture = ExtResource("1_ijn10")
+region_rect = Rect2(0, 0, 82, 24)
+patch_margin_left = 4
+patch_margin_top = 11
+patch_margin_right = 20
+patch_margin_bottom = 4
 script = ExtResource("2_84lq8")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
