@@ -21,10 +21,11 @@ GlobalScenes="*res://src/autoloads/global_scenes.gd"
 ScenesPaths="*res://src/autoloads/scenes_paths.gd"
 Constants="*res://src/autoloads/constants.gd"
 Particles="*res://src/UI/ParticlesList.gd"
+Audio="*res://src/autoloads/Audio.tscn"
 
 [display]
 
-window/size/viewport_width=1200
+window/size/viewport_width=1024
 window/size/viewport_height=600
 window/stretch/mode="canvas_items"
 
@@ -37,3 +38,4 @@ enabled=PackedStringArray("res://addons/editor_icon_previewer/plugin.cfg", "res:
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+textures/canvas_textures/default_texture_filter=0

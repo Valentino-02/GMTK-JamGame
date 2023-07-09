@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2j057n0rpim"
+path="res://.godot/imported/Happy Song (Stage 1 Normal).wav-a9d58c6069ed7830d6dc16bfde0989a2.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Music/Happy Song (Stage 1 Normal).wav"
+dest_files=["res://.godot/imported/Happy Song (Stage 1 Normal).wav-a9d58c6069ed7830d6dc16bfde0989a2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

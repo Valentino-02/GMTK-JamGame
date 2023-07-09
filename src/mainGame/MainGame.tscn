@@ -1,9 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy6rfg8vo74ya"]
+[gd_scene load_steps=21 format=3 uid="uid://b8mv2j67p6v1o"]
 
 [ext_resource type="Script" path="res://src/mainGame/MainGame.gd" id="1_umqn8"]
 [ext_resource type="PackedScene" uid="uid://caf56my2j70l6" path="res://src/mainGame/artist/Artist.tscn" id="2_2kxur"]
+[ext_resource type="AudioStream" uid="uid://bsk80gb0qk0l5" path="res://assets/Audio/Music/Melancholic Song.wav" id="3_5l0qp"]
+[ext_resource type="Texture2D" uid="uid://ckdpwiqqpgkx4" path="res://assets/mapGMTK/Stage1.png" id="3_h5nlv"]
+[ext_resource type="Texture2D" uid="uid://d2rx5vbocmw30" path="res://assets/mapGMTK/Level_1.png" id="4_d21n8"]
 [ext_resource type="PackedScene" uid="uid://c7lm71kklyqd6" path="res://src/UI/Monolog.tscn" id="4_mh4sv"]
+[ext_resource type="Texture2D" uid="uid://btpb828a8bpwo" path="res://assets/mapGMTK/Ground Tiles.png" id="5_1sctc"]
 [ext_resource type="PackedScene" uid="uid://drdr270irnb58" path="res://src/mainGame/entities/hero/Hero.tscn" id="5_4gx6o"]
+[ext_resource type="Texture2D" uid="uid://vffxsrhpkpat" path="res://assets/UI/blunkbutton.png" id="7_ov5gm"]
+[ext_resource type="Texture2D" uid="uid://4fftw2elfv62" path="res://assets/UI/blunkbutton3.png" id="8_mhuhc"]
+[ext_resource type="FontFile" uid="uid://clr2qchtyoxhk" path="res://assets/Pixellari.ttf" id="8_qcnno"]
+[ext_resource type="Texture2D" uid="uid://dklob86wpk4i2" path="res://assets/UI/blunkbutton2.png" id="9_hvhul"]
 
 [sub_resource type="Animation" id="Animation_1xi56"]
 resource_name = "ChoiceEndings"
@@ -96,30 +104,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Music:stream")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Music:playing")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 
 [sub_resource type="Animation" id="Animation_hmjt3"]
 resource_name = "FailEnding"
@@ -190,9 +174,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(4.3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.2, 4.3),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": ["1"],
+"method": &"change_background"
+}, {
 "args": [],
 "method": &"wait_next_monolog"
 }]
@@ -226,22 +213,10 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Music:stream")
+tracks/4/path = NodePath("Music:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Music:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -291,32 +266,29 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_ggpem"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/CenterContainer/Transition:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Music:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Music:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [ExtResource("3_5l0qp")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Music:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_5kh7w"]
@@ -362,6 +334,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Music:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_5l0qp")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Music:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_41bma"]
 _data = {
@@ -369,11 +365,17 @@ _data = {
 "FailEnding": SubResource("Animation_hmjt3"),
 "Main": SubResource("Animation_jolqv"),
 "NoEnding": SubResource("Animation_w2j00"),
-"RESET": SubResource("Animation_ggpem"),
 "RemoveEnding": SubResource("Animation_5kh7w")
 }
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dtf8s"]
+texture = ExtResource("5_1sctc")
+margins = Vector2i(16, 0)
+texture_region_size = Vector2i(128, 180)
+1:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_hscs7"]
+sources/0 = SubResource("TileSetAtlasSource_dtf8s")
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_umqn8")
@@ -390,12 +392,20 @@ libraries = {
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_hscs7")
-format = 2
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Backdrop" type="Sprite2D" parent="Map"]
+texture = ExtResource("3_h5nlv")
+
+[node name="Map" type="Sprite2D" parent="Map"]
+texture = ExtResource("4_d21n8")
 
 [node name="BackgroundAssets" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_hscs7")
+format = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -422,15 +432,43 @@ mouse_filter = 2
 [node name="Remove" type="TextureButton" parent="CanvasLayer/CenterContainer/BoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+texture_normal = ExtResource("7_ov5gm")
+texture_pressed = ExtResource("8_mhuhc")
+texture_hover = ExtResource("9_hvhul")
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/BoxContainer/Remove"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 78.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("8_qcnno")
+text = "Remove"
+autowrap_mode = 3
 
 [node name="No" type="TextureButton" parent="CanvasLayer/CenterContainer/BoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+texture_normal = ExtResource("7_ov5gm")
+texture_pressed = ExtResource("8_mhuhc")
+texture_hover = ExtResource("9_hvhul")
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/BoxContainer/No"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 9.0
+offset_right = 56.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("8_qcnno")
+text = "No"
+autowrap_mode = 3
 
 [node name="Monolog" parent="CanvasLayer" instance=ExtResource("4_mh4sv")]
 mouse_filter = 2
 
 [node name="Hero" parent="." instance=ExtResource("5_4gx6o")]
 position = Vector2(78, 321)
-baseDefence = 0
-baseGold = 0
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/Remove" to="." method="_on_remove_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/No" to="." method="_on_no_pressed"]

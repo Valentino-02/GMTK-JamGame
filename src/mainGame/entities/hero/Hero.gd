@@ -14,12 +14,14 @@ signal heroLostNPC
 @export_range(0,999) var baseGold : int
 
 @onready var attackModule : AttackModule = $AttackModule
-@onready var lifeBar : ProgressBar = $Lifebar
-@onready var BloodlustBar : ProgressBar = $BloodlustBar
+@onready var lifeBar : TextureProgressBar = $Lifebar
+@onready var BloodlustBar : TextureProgressBar = $BloodlustBar
 
 var heroStats := HeroStats.new()
 
 var items : Array[ItemData]
+
+var current_anim:String = "Idle"
 
 var isWithNPC: bool :
 	set(newValue):
@@ -71,6 +73,10 @@ func emit_stat_particle(type:String, up:bool):
 func recieveDamage(damage: int) -> void:
 	var dam = clamp(damage - heroStats.defence, 1, 999)
 	heroStats.health -= dam
+	
+	$AnimatedSprite2D.play("Damage")
+	$SFX.stream = load("res://assets/Audio/SFX/HeroHit.tres")
+	$SFX.play()
 
 func giveDeathReward(bloodlustReduction, gold) -> void:
 	heroStats.bloodlust -= bloodlustReduction
@@ -109,6 +115,10 @@ func _on_attack_module_do_attack():
 		return
 	var selectedEnemy = enemiesDetected[0]
 	selectedEnemy.recieveDamage(heroStats.damage)
+	
+	$AnimatedSprite2D.play("Attack")
+	$SFX.stream = load("res://assets/Audio/SFX/Punch.tres")
+	$SFX.play()
 
 func _on_attack_module_area_detected(area):
 	if area.owner is Enemy or area.owner is Structure:
@@ -145,3 +155,16 @@ func _on_stat_changed(stat: int, newValue) -> void:
 
 func _on_bloodlust_timer_timeout():
 	heroStats.bloodlust += 1
+
+func play_anim(anim:String, left:bool=false):
+	$AnimatedSprite2D.play(anim)
+	$AnimatedSprite2D.flip_h = left
+	
+	current_anim = anim
+	if anim == "Walk": play_walk_sounds()
+	
+func play_walk_sounds():
+	$SFX.stream = load("res://assets/Audio/SFX/Footsteps.tres")
+	while current_anim == "Walk":
+		$SFX.play()
+		await  $SFX.finished

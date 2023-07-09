@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7lm71kklyqd6"]
+[gd_scene load_steps=8 format=3 uid="uid://c7lm71kklyqd6"]
 
 [ext_resource type="Script" path="res://src/UI/Monolog.gd" id="1_x7xin"]
-[ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="2_tmufx"]
+[ext_resource type="Texture2D" uid="uid://vffxsrhpkpat" path="res://assets/UI/blunkbutton.png" id="2_fp8d7"]
 [ext_resource type="FontFile" uid="uid://clr2qchtyoxhk" path="res://assets/Pixellari.ttf" id="3_oyocx"]
+[ext_resource type="AudioStream" uid="uid://cn7yxmu7xknnw" path="res://assets/Audio/SFX/Voice1.tres" id="4_ub2b5"]
 
 [sub_resource type="Animation" id="Animation_y0ncd"]
 resource_name = "Fade"
@@ -49,17 +50,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x7xin")
+text_speed = 0.4
 
 [node name="TextureRect" type="NinePatchRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-self_modulate = Color(0.105882, 1, 0, 1)
 custom_minimum_size = Vector2(800, 150)
 layout_mode = 0
 offset_left = 122.0
 offset_top = 420.0
 offset_right = 922.0
 offset_bottom = 570.0
-texture = ExtResource("2_tmufx")
+texture = ExtResource("2_fp8d7")
+region_rect = Rect2(0, 0, 82, 24)
+patch_margin_left = 5
+patch_margin_top = 11
+patch_margin_right = 22
+patch_margin_bottom = 5
 
 [node name="Label" type="Label" parent="TextureRect"]
 unique_name_in_owner = true
@@ -86,3 +92,7 @@ offset_left = 639.0
 offset_top = -36.0
 offset_right = 679.0
 offset_bottom = 4.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ub2b5")
+pitch_scale = 0.8

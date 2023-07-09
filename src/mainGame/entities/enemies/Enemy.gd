@@ -29,6 +29,8 @@ func _ready():
 	stats.bloodLustReduction = enemyData.bloodlustReduction
 	stats.goldReward = enemyData.goldReward
 	
+	$AnimatedSprite2D.play(enemyData.name+" Idle")
+	
 	_connectSignals()
 
 
@@ -70,3 +72,5 @@ func _on_attack_module_area_detected(area):
 
 func _on_attack_module_do_attack():
 	hero.recieveDamage(stats.damage)
+	
+	$AnimatedSprite2D.play(enemyData.name+" Attack")

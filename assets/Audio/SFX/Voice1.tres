@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://cn7yxmu7xknnw"]
+
+[ext_resource type="AudioStream" uid="uid://tbjnnn7gefvg" path="res://assets/Audio/SFX/UI/dialog noise_00.wav" id="1_6ne8g"]
+[ext_resource type="AudioStream" uid="uid://7qimaggglq44" path="res://assets/Audio/SFX/UI/dialog noise_01.wav" id="2_7yhem"]
+[ext_resource type="AudioStream" uid="uid://dsb23rbtkfvpw" path="res://assets/Audio/SFX/UI/dialog noise_02.wav" id="3_1nhoh"]
+[ext_resource type="AudioStream" uid="uid://exema5ae2c3m" path="res://assets/Audio/SFX/UI/dialog noise_03.wav" id="4_ookqd"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_6ne8g")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_7yhem")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_1nhoh")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_ookqd")
+stream_3/weight = 1.0

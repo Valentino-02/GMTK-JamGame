@@ -93,3 +93,21 @@ func wait_next_interaction():
 
 func _reset_game():
 	reset_game.emit()
+
+func change_background(index:String):
+	$Map/Backdrop.texture = load("res://assets/mapGMTK/Stage"+index+".png")
+	$Map/Map.texture = load("res://assets/mapGMTK/Level_"+index+".png")
+	
+	match index:
+		"1": $Music.stream = load("res://assets/Audio/Music/Happy Song (Stage 1 Normal).wav")
+		"12","2": $Music.stream = load("res://assets/Audio/Music/Stage 2 Corruption.wav")
+		"23","3": $Music.stream = load("res://assets/Audio/Music/Stage 3 Corruption.wav")
+	
+
+
+func _on_remove_pressed():
+	$MainPath.play("RemoveEnding")
+
+
+func _on_no_pressed():
+	$MainPath.play("NoEnding")

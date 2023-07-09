@@ -28,4 +28,5 @@ func change_main_scene(new_scene: PackedScene) -> void:
 
 
 func _start_game() -> void:
+	GlobalScenes.retry_number += 1
 	change_main_scene(ScenesPaths.IntroScreen)

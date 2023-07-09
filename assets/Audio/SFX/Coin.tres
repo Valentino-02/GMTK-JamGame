@@ -1,0 +1,26 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=8 format=3 uid="uid://l35lxxhtdg45"]
+
+[ext_resource type="AudioStream" uid="uid://dtu7os6v0k8ma" path="res://assets/Audio/SFX/UI/coin_01.wav" id="1_yru4m"]
+[ext_resource type="AudioStream" uid="uid://lew74jyq0bms" path="res://assets/Audio/SFX/UI/coin_02.wav" id="2_rwb2t"]
+[ext_resource type="AudioStream" uid="uid://dti466y77i20t" path="res://assets/Audio/SFX/UI/coin_03.wav" id="3_ds2hj"]
+[ext_resource type="AudioStream" uid="uid://beccok4yojfv4" path="res://assets/Audio/SFX/UI/coin_04.wav" id="4_pcrbu"]
+[ext_resource type="AudioStream" uid="uid://hi3a5kjd5amo" path="res://assets/Audio/SFX/UI/coin_05.wav" id="5_d6urn"]
+[ext_resource type="AudioStream" uid="uid://c3gjo6hcces61" path="res://assets/Audio/SFX/UI/coin_06.wav" id="6_e2ind"]
+[ext_resource type="AudioStream" uid="uid://c4622xb0rfak7" path="res://assets/Audio/SFX/UI/coin_07.wav" id="7_ex04r"]
+
+[resource]
+streams_count = 7
+stream_0/stream = ExtResource("1_yru4m")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_rwb2t")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_ds2hj")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_pcrbu")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_d6urn")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_e2ind")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_ex04r")
+stream_6/weight = 1.0

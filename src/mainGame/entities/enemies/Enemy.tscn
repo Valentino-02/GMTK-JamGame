@@ -1,22 +1,130 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl0yyj3bikhwy"]
+[gd_scene load_steps=23 format=3 uid="uid://cl0yyj3bikhwy"]
 
 [ext_resource type="Script" path="res://src/mainGame/entities/enemies/Enemy.gd" id="1_ivfwx"]
-[ext_resource type="Resource" uid="uid://c3ds0ccraifby" path="res://src/mainGame/entities/enemies/TestEnemyData.tres" id="2_bkrf4"]
+[ext_resource type="Resource" uid="uid://f0pmxc5ncy60" path="res://src/mainGame/entities/enemies/SlimeEnemyData.tres" id="2_h1u6h"]
+[ext_resource type="Texture2D" uid="uid://dww4bau480kmx" path="res://assets/Characters/Slim_Attack.png" id="3_2k1go"]
 [ext_resource type="Material" uid="uid://ds5hywdnlufaq" path="res://assets/Particles/ExplosionParticles.tres" id="3_o36fb"]
+[ext_resource type="Texture2D" uid="uid://bjqjdiy654oeu" path="res://assets/Characters/skelly.png" id="3_xqwf5"]
 [ext_resource type="PackedScene" uid="uid://bn5k0fs4pomu" path="res://src/UI/EntityEraseBtn.tscn" id="4_5ufjc"]
+[ext_resource type="Texture2D" uid="uid://cpjmrdd0c8eg1" path="res://assets/Characters/skelly-attack.png" id="4_48nqj"]
+[ext_resource type="Texture2D" uid="uid://bm513qa00ob0l" path="res://assets/Characters/Slim_Idle.png" id="4_qxil2"]
 [ext_resource type="PackedScene" uid="uid://b5ltrp8a64t2b" path="res://src/mainGame/entities/modules/AttackModule.tscn" id="5_2lr2l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahfjk"]
+atlas = ExtResource("3_xqwf5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp17q"]
+atlas = ExtResource("3_xqwf5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfkbo"]
+atlas = ExtResource("3_xqwf5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fkgo"]
+atlas = ExtResource("4_48nqj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alvwc"]
+atlas = ExtResource("4_48nqj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uvtq"]
+atlas = ExtResource("3_2k1go")
+region = Rect2(0, 0, 32, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqtye"]
+atlas = ExtResource("3_2k1go")
+region = Rect2(32, 0, 32, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q3dq"]
+atlas = ExtResource("3_2k1go")
+region = Rect2(64, 0, 32, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h77w2"]
+atlas = ExtResource("3_2k1go")
+region = Rect2(96, 0, 32, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4j4b"]
+atlas = ExtResource("4_qxil2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khn5x"]
+atlas = ExtResource("4_qxil2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wb1ap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahfjk")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_mp17q")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_hfkbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahfjk")
+}],
+"loop": false,
+"name": &"Skelly Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fkgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alvwc")
+}],
+"loop": true,
+"name": &"Skelly Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uvtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqtye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q3dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h77w2")
+}],
+"loop": false,
+"name": &"Slimin\' Slime Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4j4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khn5x")
+}],
+"loop": true,
+"name": &"Slimin\' Slime Idle",
+"speed": 3.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01lb4"]
 radius = 69.3542
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_ivfwx")
-enemyData = ExtResource("2_bkrf4")
+enemyData = ExtResource("2_h1u6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-
-[node name="temporarySprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
+sprite_frames = SubResource("SpriteFrames_wb1ap")
+animation = &"Skelly Attack"
+frame = 3
+frame_progress = 1.0
 
 [node name="EraseButton" parent="." instance=ExtResource("4_5ufjc")]
 

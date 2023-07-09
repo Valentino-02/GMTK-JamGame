@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1e0pb7rqxgkr"]
+[gd_scene load_steps=7 format=3 uid="uid://d1e0pb7rqxgkr"]
 
 [ext_resource type="Script" path="res://src/UI/TitleMenu.gd" id="1_7um3g"]
 [ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="2_mcnju"]
+[ext_resource type="Texture2D" uid="uid://vffxsrhpkpat" path="res://assets/UI/blunkbutton.png" id="3_xmnw4"]
+[ext_resource type="Texture2D" uid="uid://4fftw2elfv62" path="res://assets/UI/blunkbutton3.png" id="4_tf44f"]
+[ext_resource type="FontFile" uid="uid://clr2qchtyoxhk" path="res://assets/Pixellari.ttf" id="4_wf786"]
+[ext_resource type="Texture2D" uid="uid://dklob86wpk4i2" path="res://assets/UI/blunkbutton2.png" id="5_iiu3m"]
 
 [node name="TitleMenu" type="CenterContainer"]
 anchors_preset = 15
@@ -16,6 +20,26 @@ custom_minimum_size = Vector2(1024, 600)
 layout_mode = 2
 texture = ExtResource("2_mcnju")
 
-[node name="StartGameBtn" type="Button" parent="."]
+[node name="PC" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1024, 600)
 layout_mode = 2
-text = "Start Game, maybe"
+texture = ExtResource("2_mcnju")
+
+[node name="Start" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("3_xmnw4")
+texture_pressed = ExtResource("4_tf44f")
+texture_hover = ExtResource("5_iiu3m")
+
+[node name="Label" type="Label" parent="Start"]
+unique_name_in_owner = true
+offset_left = 5.0
+offset_top = 8.0
+offset_right = 78.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("4_wf786")
+text = "Edit Game"
+autowrap_mode = 3
+
+[connection signal="pressed" from="Start" to="." method="_on_start_game"]

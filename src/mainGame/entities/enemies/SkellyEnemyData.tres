@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://ws0srjn87cwc"]
+
+[ext_resource type="Script" path="res://src/mainGame/entities/enemies/EnemyData.gd" id="1_h7nav"]
+
+[resource]
+script = ExtResource("1_h7nav")
+name = "Skelly"
+baseHealth = 2
+baseDamage = 5
+deployCost = 25
+eraseCost = 5
+goldReward = 20
+bloodlustReduction = 4
