@@ -97,3 +97,9 @@ func _reset_game():
 func change_background(index:String):
 	$Map/Backdrop.texture = load("res://assets/mapGMTK/Stage"+index+".png")
 	$Map/Map.texture = load("res://assets/mapGMTK/Level_"+index+".png")
+	
+	match index:
+		"1": $Music.stream = load("res://assets/Audio/Music/Happy Song (Stage 1 Normal).wav")
+		"12","2": $Music.stream = load("res://assets/Audio/Music/Stage 2 Corruption.wav")
+		"23","3": $Music.stream = load("res://assets/Audio/Music/Stage 3 Corruption.wav")
+	
