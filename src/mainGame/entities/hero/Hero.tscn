@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://djothv4xaon4" path="res://assets/Characters/Protag_Move.png" id="5_epd5n"]
 [ext_resource type="Texture2D" uid="uid://cpy1gy5mvj4m2" path="res://assets/UI/Health-empty.png" id="7_wusxn"]
 [ext_resource type="Texture2D" uid="uid://evad3n7mv0ls" path="res://assets/UI/Health-full.png" id="8_551ay"]
-[ext_resource type="Texture2D" uid="uid://bg0r3nlyxd5mg" path="res://assets/UI/Bloodlust-empty.png" id="9_ta6jm"]
-[ext_resource type="Texture2D" uid="uid://bgijkgkjhi16q" path="res://assets/UI/Bloodlust-full.png" id="10_3cjxy"]
+[ext_resource type="Texture2D" uid="uid://bg0r3nlyxd5mg" path="res://assets/UI/Bloodlust-empty.png" id="9_t0uuv"]
+[ext_resource type="Texture2D" uid="uid://bgijkgkjhi16q" path="res://assets/UI/Bloodlust-full.png" id="10_8iha1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68q15"]
 atlas = ExtResource("2_e4o61")
@@ -256,7 +256,6 @@ radius = 75.1066
 
 [node name="Hero" type="CharacterBody2D"]
 script = ExtResource("1_33825")
-baseBloodlust = 1
 baseDamage = 1
 baseHealth = 50
 
@@ -297,14 +296,15 @@ texture_progress = ExtResource("8_551ay")
 
 [node name="BloodlustBar" type="TextureProgressBar" parent="."]
 offset_left = -45.0
-offset_top = -102.0
-offset_right = 78.0
-offset_bottom = -2.0
+offset_top = -108.0
+offset_right = 55.0
+offset_bottom = -8.0
 value = 50.0
-texture_under = ExtResource("9_ta6jm")
-texture_progress = ExtResource("10_3cjxy")
+texture_under = ExtResource("9_t0uuv")
+texture_progress = ExtResource("10_8iha1")
 
 [node name="BloodlustTimer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [connection signal="areaDetected" from="AttackModule" to="." method="_on_attack_module_area_detected"]
