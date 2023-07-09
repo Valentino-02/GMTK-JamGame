@@ -12,6 +12,7 @@ func _ready():
 func display_next_monolog(text_array):
 	current_story = text_array
 	text_index = 0
+	$%Label.visible_characters = 0
 	
 	for t in text_array:
 		# wait for next text

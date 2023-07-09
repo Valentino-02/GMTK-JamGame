@@ -48,7 +48,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 30),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(650, 175), Vector2(-1082.82, 207.786)]
+"values": [Vector2(650, 175), Vector2(-632.288, 199.261)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -83,7 +83,7 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2, 7, 14.1),
+"times": PackedFloat32Array(2, 10.6, 20.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
@@ -115,10 +115,34 @@ tracks/6/path = NodePath("CanvasLayer/CenterContainer/BoxContainer:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 15.7, 16.7),
+"times": PackedFloat32Array(0, 22.4, 23.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hero/HurtBox/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Hero/AttackModule/Area2D/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_hmjt3"]
@@ -405,6 +429,30 @@ tracks/8/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Hero/AttackModule/Area2D/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Hero/HurtBox/CollisionShape2D:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_w2j00"]
 resource_name = "NoEnding"
@@ -581,20 +629,8 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_d5tyw"]
+[sub_resource type="Animation" id="Animation_hatlu"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hero:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-90, 254)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_41bma"]
 _data = {
@@ -602,7 +638,7 @@ _data = {
 "FailEnding": SubResource("Animation_hmjt3"),
 "Main": SubResource("Animation_jolqv"),
 "NoEnding": SubResource("Animation_w2j00"),
-"RESET": SubResource("Animation_d5tyw"),
+"RESET": SubResource("Animation_hatlu"),
 "RemoveEnding": SubResource("Animation_5kh7w")
 }
 
@@ -706,7 +742,7 @@ autowrap_mode = 3
 mouse_filter = 2
 
 [node name="Hero" parent="." instance=ExtResource("5_4gx6o")]
-position = Vector2(-90, 254)
+position = Vector2(-85, -916)
 
 [node name="EnemyHolder" type="Node2D" parent="."]
 
@@ -766,3 +802,6 @@ npcData = ExtResource("22_lji63")
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/Remove" to="." method="_on_remove_pressed"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/No" to="." method="_on_no_pressed"]
+
+[editable path="Hero"]
+[editable path="Hero/AttackModule"]
