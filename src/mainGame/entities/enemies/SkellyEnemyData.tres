@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource("1_h7nav")
 name = "Skelly"
-baseHealth = 2
-baseDamage = 5
-deployCost = 25
-eraseCost = 5
+baseHealth = 5
+baseDamage = 3
+deployCost = 15
+eraseCost = 20
 goldReward = 20
-bloodlustReduction = 4
+bloodlustReduction = 10

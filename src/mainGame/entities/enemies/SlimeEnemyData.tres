@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource("1_6cl5g")
 name = "Slimin' Slime"
-baseHealth = 2
-baseDamage = 5
-deployCost = 25
-eraseCost = 5
-goldReward = 20
-bloodlustReduction = 4
+baseHealth = 3
+baseDamage = 2
+deployCost = 15
+eraseCost = 10
+goldReward = 0
+bloodlustReduction = 5

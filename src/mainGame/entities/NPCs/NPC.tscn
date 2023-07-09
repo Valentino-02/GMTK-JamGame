@@ -60,6 +60,10 @@ sprite_frames = SubResource("SpriteFrames_qbjo8")
 animation = &"Man Idle"
 
 [node name="EraseButton" parent="." instance=ExtResource("3_gmpi4")]
+offset_left = 11.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = -15.0
 
 [node name="ClickParticles" type="GPUParticles2D" parent="EraseButton"]
 unique_name_in_owner = true

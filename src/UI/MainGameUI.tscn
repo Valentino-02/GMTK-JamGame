@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bigeakj21ra14"]
+[gd_scene load_steps=7 format=3 uid="uid://bigeakj21ra14"]
 
 [ext_resource type="Script" path="res://src/UI/MainGameUI.gd" id="1_pi1u7"]
 [ext_resource type="PackedScene" uid="uid://b7u4jpbkx823u" path="res://src/UI/EntityHolder.tscn" id="2_7brv4"]
+[ext_resource type="Texture2D" uid="uid://dklob86wpk4i2" path="res://assets/UI/blunkbutton2.png" id="3_8n4ib"]
 [ext_resource type="PackedScene" uid="uid://ctmbrwcrwxg3l" path="res://src/UI/ItemHolder.tscn" id="3_c5ald"]
+[ext_resource type="Texture2D" uid="uid://ciywukjwlc5p5" path="res://assets/UI/World-Empty.png" id="3_lotll"]
+[ext_resource type="Texture2D" uid="uid://hdf32417ukep" path="res://assets/UI/World-full.png" id="4_8fk60"]
 
 [node name="MainGameUI" type="Control"]
 layout_mode = 3
@@ -16,41 +19,11 @@ script = ExtResource("1_pi1u7")
 
 [node name="ArtistEnergyLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 843.0
-offset_top = 47.0
-offset_right = 905.0
-offset_bottom = 73.0
-text = "Energy: "
-
-[node name="EnemyHolder" parent="." instance=ExtResource("2_7brv4")]
-layout_mode = 1
-offset_left = 1007.0
-offset_top = 60.0
-offset_right = -9.0
-offset_bottom = -452.0
-
-[node name="NPCHolder" parent="." instance=ExtResource("2_7brv4")]
-layout_mode = 1
-offset_left = 1003.0
-offset_top = 271.0
-offset_right = -13.0
-offset_bottom = -241.0
-
-[node name="NextEnemyLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1051.0
-offset_top = 25.0
-offset_right = 1193.0
-offset_bottom = 51.0
-text = "NextEnemyHolder"
-
-[node name="NextNPCLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1045.0
-offset_top = 222.0
-offset_right = 1187.0
-offset_bottom = 248.0
-text = "NextNPCHolder"
+offset_left = 834.0
+offset_top = 30.0
+offset_right = 952.0
+offset_bottom = 56.0
+text = "My Will To Dev:"
 
 [node name="ItemHolder" parent="." instance=ExtResource("3_c5ald")]
 layout_mode = 1
@@ -61,15 +34,60 @@ offset_bottom = 413.0
 
 [node name="HeroGoldLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 706.0
-offset_top = 542.0
-offset_right = 751.0
-offset_bottom = 568.0
+offset_left = 1242.0
+offset_top = 468.0
+offset_right = 1287.0
+offset_bottom = 494.0
 text = "Gold: "
 
-[node name="DestructionBar" type="ProgressBar" parent="."]
+[node name="DestructionBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 337.0
-offset_top = 41.0
-offset_right = 750.0
-offset_bottom = 68.0
+offset_left = 15.0
+offset_top = 17.0
+offset_right = 84.0
+offset_bottom = 44.0
+scale = Vector2(3, 3)
+texture_under = ExtResource("3_lotll")
+texture_progress = ExtResource("4_8fk60")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(923, 152.5)
+scale = Vector2(2.29268, 3.04167)
+texture = ExtResource("3_8n4ib")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(923, 254)
+scale = Vector2(2.29268, 3.04167)
+texture = ExtResource("3_8n4ib")
+
+[node name="NextEnemyLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 119.0
+offset_right = 992.0
+offset_bottom = 145.0
+scale = Vector2(0.9, 0.9)
+text = "Grab To Drop Enemy"
+
+[node name="NextNPCLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 834.0
+offset_top = 220.0
+offset_right = 976.0
+offset_bottom = 246.0
+scale = Vector2(0.9, 0.9)
+text = "Grab To Drop NPC"
+
+[node name="EnemyHolder" parent="." instance=ExtResource("2_7brv4")]
+layout_mode = 1
+offset_left = 893.0
+offset_top = 157.0
+offset_right = -67.0
+offset_bottom = -431.0
+
+[node name="NPCHolder" parent="." instance=ExtResource("2_7brv4")]
+layout_mode = 1
+offset_left = 894.0
+offset_top = 257.0
+offset_right = -65.0
+offset_bottom = -331.0

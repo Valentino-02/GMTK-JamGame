@@ -127,6 +127,10 @@ frame = 3
 frame_progress = 1.0
 
 [node name="EraseButton" parent="." instance=ExtResource("4_5ufjc")]
+offset_left = 11.0
+offset_top = -31.0
+offset_right = 38.0
+offset_bottom = -14.0
 
 [node name="Cross" type="Sprite2D" parent="EraseButton"]
 position = Vector2(32, 39)

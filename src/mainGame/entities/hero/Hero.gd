@@ -63,6 +63,7 @@ func _ready():
 	
 	heroStats.statEmitParticle.connect(emit_stat_particle)
 	_connectSignal()
+	GlobalScenes.hero = self
 
 func _connectSignal() -> void:
 	heroStats.statChanged.connect(_on_stat_changed)
@@ -102,6 +103,9 @@ func _addItem(itemData) -> void:
 
 func _destroyNPC(npc : NPC) -> void:
 	owner.destructionLevel += npc.stats.destruction
+	
+func buildingReward(building: Structure) -> void:
+	owner.destructionLevel += 10
 
 func _forgiveNPC(npc: NPC) -> void:
 	owner.destructionLevel -= npc.stats.goodness
@@ -122,6 +126,9 @@ func _on_attack_module_do_attack():
 
 func _on_attack_module_area_detected(area):
 	if area.owner is Enemy or area.owner is Structure:
+		if area.owner is Structure:
+			if area.owner.stats.destructability >= heroStats.bloodlust:
+				return
 		var oldEnemies = enemiesDetected.duplicate()
 		oldEnemies.append(area.owner)
 		enemiesDetected = oldEnemies

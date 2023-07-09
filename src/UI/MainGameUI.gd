@@ -7,7 +7,7 @@ class_name MainGameUI
 @onready var enemyHolder : EntityHolder = $EnemyHolder
 @onready var npcHolder : EntityHolder = $NPCHolder
 @onready var itemHolder : ItemHolder = $ItemHolder
-@onready var destructionBar : ProgressBar = $DestructionBar
+@onready var destructionBar  = $DestructionBar
 
 
 
@@ -18,7 +18,7 @@ func _ready():
 	itemHolder.holdedItemData = preload("res://src/mainGame/items/TestItemData.tres")
 
 func _on_artist_energy_changed(newValue: int) -> void:
-	artistEnergyLabel.text = 'Energy: ' + str(newValue)
+	artistEnergyLabel.text = 'My Will To Dev: ' + str(newValue)
 	enemyHolder.on_artist_energy_changed(newValue)
 	npcHolder.on_artist_energy_changed(newValue)
 

@@ -8,6 +8,8 @@ class_name Structure
 
 var stats := StructureStats.new()
 
+var hero
+
 
 func _ready():
 	stats.health = structureData.baseHealth
@@ -30,6 +32,7 @@ func _die() -> void:
 	Particles.play_death_particles($GPUParticles2D)
 	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
 	animatedSprite.play(stats.name+" Bad")
+	hero.buildingReward(self)
 #	queue_free()
 
 

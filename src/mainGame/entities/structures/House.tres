@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_cggre")
 name = ""
-baseHealth = 3
-baseDestructability = 2
+baseHealth = 6
+baseDestructability = 35

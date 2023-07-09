@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_fu0tn")
-name = ""
-baseMuerderability = 20
+name = "Woman"
+baseMuerderability = 30
 deployCost = 5
 eraseCost = 7
-destruction = 5
-goodness = 3
+destruction = 20
+goodness = 10

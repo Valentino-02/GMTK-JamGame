@@ -4,7 +4,6 @@
 
 [node name="Artist" type="Node"]
 script = ExtResource("1_o3h74")
-startingEnergy = 50
 energyPerSecond = 1
 
 [node name="EnergyTimer" type="Timer" parent="."]
