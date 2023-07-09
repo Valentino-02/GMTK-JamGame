@@ -50,7 +50,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x7xin")
-text_speed = 0.4
+text_speed = 0.02
 
 [node name="TextureRect" type="NinePatchRect" parent="."]
 modulate = Color(1, 1, 1, 0)
