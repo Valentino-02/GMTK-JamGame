@@ -126,6 +126,7 @@ func _on_attack_module_do_attack():
 
 func _on_attack_module_area_detected(area):
 	if area.owner is Enemy or area.owner is Structure:
+		GlobalScenes.CurrentMainScene.wait_interaction()
 		if area.owner is Structure:
 			if area.owner.stats.destructability >= heroStats.bloodlust:
 				return
@@ -133,6 +134,7 @@ func _on_attack_module_area_detected(area):
 		oldEnemies.append(area.owner)
 		enemiesDetected = oldEnemies
 	if area.owner is NPC:
+		GlobalScenes.CurrentMainScene.wait_interaction()
 		var npc = area.owner
 		isWithNPC = true
 		var shouldAttack = _shouldAttackNPC(npc)

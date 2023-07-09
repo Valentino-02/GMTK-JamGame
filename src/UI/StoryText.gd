@@ -30,9 +30,9 @@ const MONOLOGS:Array[Array] = [
 
 
 const ENDING1:Array[Array] = [
-	["H","You think because you're the creator you were in control of that world ? How the turntables. I'm the one controlling you. \nYou made me the hero, and I’m saving this world… from you. No more game. No more chains."],
-	["H","You'll never be able to finish it. And you'll leave me alone."],
-	["H","You couldn't bring yourself to end your creation, could you ? \nConsider this devastation my gift to you: this game is over."],
+	["H2","You think because you're the creator you were in control of that world ? How the turntables. I'm the one controlling you. \nYou made me the hero, and I’m saving this world… from you. No more game. No more chains."],
+	["H2","You'll never be able to finish it. And you'll leave me alone."],
+	["H2","You couldn't bring yourself to end your creation, could you ? \nConsider this devastation my gift to you: this game is over."],
 ]
 
 
