@@ -46,14 +46,16 @@ func _connectSignals() -> void:
 func _erase() -> void:
 	Particles.play_death_particles($GPUParticles2D)
 	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
-	queue_free()
+	GlobalScenes.CurrentMainScene.nextInteraction.emit()
 	erased.emit(enemyData.eraseCost)
+	queue_free()
 
 func _die() -> void:
 	Particles.play_death_particles($GPUParticles2D)
 	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
 	hero = GlobalScenes.hero
 	hero.giveDeathReward(stats.bloodLustReduction, stats.goldReward)
+	GlobalScenes.CurrentMainScene.nextInteraction.emit()
 	queue_free()
 
 

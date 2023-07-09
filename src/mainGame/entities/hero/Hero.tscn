@@ -267,10 +267,10 @@ animation = &"Attack"
 autoplay = "IdleFront"
 
 [node name="AttackModule" parent="." instance=ExtResource("3_bnwqv")]
-visible = false
+scale = Vector2(0.0652328, 0.0652328)
 
 [node name="HurtBox" type="Area2D" parent="."]
-visible = false
+scale = Vector2(0.147445, 0.147445)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_1qx4u")

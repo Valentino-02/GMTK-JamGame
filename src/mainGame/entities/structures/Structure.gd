@@ -32,6 +32,7 @@ func _die() -> void:
 	Particles.play_death_particles($GPUParticles2D)
 	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
 	animatedSprite.play(stats.name+" Bad")
+	GlobalScenes.CurrentMainScene.nextInteraction.emit()
 	hero.buildingReward(self)
 #	queue_free()
 

@@ -44,12 +44,14 @@ func _connectSignals() -> void:
 func _erase() -> void:
 	Particles.play_death_particles($GPUParticles2D)
 	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
-	queue_free()
 	erased.emit(npcData.eraseCost)
+	GlobalScenes.CurrentMainScene.nextInteraction.emit()
+	queue_free()
 
 func _die() -> void:
 	Particles.play_death_particles($GPUParticles2D)
 	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
+	GlobalScenes.CurrentMainScene.nextInteraction.emit()
 	queue_free()
 
 
