@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b8mv2j67p6v1o"]
+[gd_scene load_steps=22 format=3 uid="uid://b8mv2j67p6v1o"]
 
 [ext_resource type="Script" path="res://src/mainGame/MainGame.gd" id="1_umqn8"]
 [ext_resource type="PackedScene" uid="uid://caf56my2j70l6" path="res://src/mainGame/artist/Artist.tscn" id="2_2kxur"]
@@ -162,35 +162,61 @@ tracks/0/path = NodePath("Hero:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 3, 7, 9, 10.5, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(78, 321), Vector2(515, 555), Vector2(786, 313)]
+"values": [Vector2(-85, -916), Vector2(-85, -916), Vector2(-80, -749), Vector2(17, -692), Vector2(11, -587), Vector2(11, -587)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".")
+tracks/1/path = NodePath("Hero")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.2, 4.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(3, 7, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["WalkFront", false],
+"method": &"play_anim"
+}, {
+"args": ["WalkSide", false],
+"method": &"play_anim"
+}, {
+"args": ["WalkFront", false],
+"method": &"play_anim"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 1, 11, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": ["1"],
 "method": &"change_background"
 }, {
 "args": [],
 "method": &"wait_next_monolog"
+}, {
+"args": [],
+"method": &"wait_next_interaction"
+}, {
+"args": [],
+"method": &"wait_next_monolog"
 }]
 }
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Monolog")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Monolog")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -198,25 +224,25 @@ tracks/2/keys = {
 "method": &"read_monologs"
 }]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/CenterContainer/Transition:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/CenterContainer/Transition:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Music:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Music:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -359,12 +385,28 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_gw00c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hero:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-85, -916)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_41bma"]
 _data = {
 "ChoiceEndings": SubResource("Animation_1xi56"),
 "FailEnding": SubResource("Animation_hmjt3"),
 "Main": SubResource("Animation_jolqv"),
 "NoEnding": SubResource("Animation_w2j00"),
+"RESET": SubResource("Animation_gw00c"),
 "RemoveEnding": SubResource("Animation_5kh7w")
 }
 
@@ -418,6 +460,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Transition" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(1024, 600)
 layout_mode = 2
 mouse_filter = 2
@@ -468,7 +511,7 @@ autowrap_mode = 3
 mouse_filter = 2
 
 [node name="Hero" parent="." instance=ExtResource("5_4gx6o")]
-position = Vector2(78, 321)
+position = Vector2(-85, -916)
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/Remove" to="." method="_on_remove_pressed"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/No" to="." method="_on_no_pressed"]
