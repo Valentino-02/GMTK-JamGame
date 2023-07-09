@@ -47,7 +47,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h77w2")
 }],
-"loop": true,
+"loop": false,
 "name": &"Slimin\' Slime Attack",
 "speed": 5.0
 }, {

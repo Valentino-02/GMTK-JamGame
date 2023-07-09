@@ -126,7 +126,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_np46c")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -158,7 +158,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wv1uj")
 }],
-"loop": true,
+"loop": false,
 "name": &"Damage",
 "speed": 15.0
 }, {
@@ -258,10 +258,8 @@ baseHealth = 50
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vxxej")
-animation = &"Damage"
+animation = &"Attack"
 autoplay = "IdleFront"
-frame = 4
-frame_progress = 0.424444
 
 [node name="AttackModule" parent="." instance=ExtResource("3_bnwqv")]
 visible = false
