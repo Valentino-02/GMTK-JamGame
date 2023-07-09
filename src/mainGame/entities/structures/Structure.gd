@@ -19,12 +19,15 @@ func _ready():
 
 func recieveDamage(damage: int) -> void:
 	stats.health -= damage
+	Particles.play_particles($GPUParticles2D, "health", false)
 
 
 func _connectSignals() -> void:
 	stats.destroyed.connect(_die)
 
 func _die() -> void:
+	Particles.play_death_particles($GPUParticles2D)
+	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
 	queue_free()
 
 
