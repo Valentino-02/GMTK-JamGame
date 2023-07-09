@@ -25,7 +25,7 @@ func _ready():
 	stats.goodness = npcData.goodness
 	stats.destruction = npcData.destruction
 	
-	$AnimatedSprite2D.play(stats.name+" Idle")
+	$AnimatedSprite2D.play(npcData.name+" Idle")
 	
 	_connectSignals()
 

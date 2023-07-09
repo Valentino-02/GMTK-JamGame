@@ -87,9 +87,16 @@ func wait_next_monolog():
 #	$MainPath.play()
 
 func wait_next_interaction():
+	pass
+#	$MainPath.pause()
+#	await nextInteraction
+#	$MainPath.play()
+
+func wait_interaction():
 	$MainPath.pause()
 	await nextInteraction
 	$MainPath.play()
+	
 
 func _reset_game():
 	reset_game.emit()
@@ -115,3 +122,6 @@ func _on_no_pressed():
 func play_anim(anim:String):
 	if anim == "ChoiceEndings": $MainPath.speed_scale = 1
 	$MainPath.play(anim)
+
+#func _input(event):
+#	if Input.is_action_just_pressed("ui_accept"): nextInteraction.emit()

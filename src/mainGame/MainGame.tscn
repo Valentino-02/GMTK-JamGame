@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://b8mv2j67p6v1o"]
+[gd_scene load_steps=38 format=3 uid="uid://b8mv2j67p6v1o"]
 
 [ext_resource type="Script" path="res://src/mainGame/MainGame.gd" id="1_umqn8"]
 [ext_resource type="PackedScene" uid="uid://caf56my2j70l6" path="res://src/mainGame/artist/Artist.tscn" id="2_2kxur"]
 [ext_resource type="AudioStream" uid="uid://bsk80gb0qk0l5" path="res://assets/Audio/Music/Melancholic Song.wav" id="3_5l0qp"]
 [ext_resource type="Texture2D" uid="uid://ckdpwiqqpgkx4" path="res://assets/mapGMTK/Stage1.png" id="3_h5nlv"]
+[ext_resource type="AudioStream" uid="uid://d2j057n0rpim" path="res://assets/Audio/Music/Happy Song (Stage 1 Normal).wav" id="3_scigs"]
 [ext_resource type="Texture2D" uid="uid://d2rx5vbocmw30" path="res://assets/mapGMTK/Level_1.png" id="4_d21n8"]
 [ext_resource type="PackedScene" uid="uid://c7lm71kklyqd6" path="res://src/UI/Monolog.tscn" id="4_mh4sv"]
 [ext_resource type="Texture2D" uid="uid://btpb828a8bpwo" path="res://assets/mapGMTK/Ground Tiles.png" id="5_1sctc"]
@@ -13,13 +14,21 @@
 [ext_resource type="FontFile" uid="uid://clr2qchtyoxhk" path="res://assets/Pixellari.ttf" id="8_qcnno"]
 [ext_resource type="Texture2D" uid="uid://dklob86wpk4i2" path="res://assets/UI/blunkbutton2.png" id="9_hvhul"]
 [ext_resource type="PackedScene" uid="uid://cl0yyj3bikhwy" path="res://src/mainGame/entities/enemies/Enemy.tscn" id="13_5f0mt"]
+[ext_resource type="Resource" uid="uid://ws0srjn87cwc" path="res://src/mainGame/entities/enemies/SkellyEnemyData.tres" id="15_0rtde"]
+[ext_resource type="PackedScene" uid="uid://b5tbjgx1bwpo3" path="res://src/mainGame/entities/structures/Structure.tscn" id="16_m0oqx"]
+[ext_resource type="Script" path="res://src/mainGame/entities/enemies/EnemyData.gd" id="16_q3o6r"]
+[ext_resource type="Script" path="res://src/mainGame/entities/structures/StructureData.gd" id="18_h1wg1"]
+[ext_resource type="PackedScene" uid="uid://bseug5jig2jk2" path="res://src/mainGame/entities/NPCs/NPC.tscn" id="20_dwmgb"]
+[ext_resource type="Resource" uid="uid://n4x1vmol6uy4" path="res://src/mainGame/entities/NPCs/Man.tres" id="21_t1c1t"]
+[ext_resource type="Resource" uid="uid://cc6hw1j3vc8ij" path="res://src/mainGame/entities/NPCs/Woman.tres" id="22_lji63"]
+[ext_resource type="Script" path="res://src/mainGame/entities/NPCs/NPC_Data.gd" id="24_5uqns"]
 
 [sub_resource type="Animation" id="Animation_1xi56"]
 resource_name = "ChoiceEndings"
 length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Hero:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -169,10 +178,10 @@ tracks/0/path = NodePath("Hero:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3, 7, 9, 10.5, 11, 14, 19, 20, 23, 26, 29, 32.5, 35, 37, 39, 41.2, 45, 48, 50, 53),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 3, 7, 9, 10.5, 11, 14, 19, 20, 22, 24.5, 27.5, 29.6, 30.5, 31.1, 34, 36.5, 38.5, 40.5, 42.7, 46.5, 49.5, 51.5, 54.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-85, -916), Vector2(-85, -916), Vector2(-80, -749), Vector2(17, -692), Vector2(11, -587), Vector2(11, -587), Vector2(-96, -439), Vector2(-91, 2), Vector2(52, 89), Vector2(759, 11), Vector2(932, -431), Vector2(759, 11), Vector2(-159, 84), Vector2(-677, 181), Vector2(-926, 26), Vector2(-1000, -303), Vector2(-885, 137), Vector2(-363, 230), Vector2(-100, 344), Vector2(-103, 549), Vector2(-86, 702)]
+"values": [Vector2(-85, -916), Vector2(-85, -916), Vector2(-80, -749), Vector2(17, -692), Vector2(11, -587), Vector2(11, -587), Vector2(-96, -439), Vector2(-91, 2), Vector2(52, 89), Vector2(386, 132), Vector2(759, 11), Vector2(932, -431), Vector2(833, -161), Vector2(733, -81), Vector2(581, 20), Vector2(-159, 84), Vector2(-677, 181), Vector2(-926, 26), Vector2(-1000, -303), Vector2(-885, 137), Vector2(-363, 230), Vector2(-84, 250), Vector2(-103, 549), Vector2(-86, 702)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -181,7 +190,7 @@ tracks/1/path = NodePath("Hero")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3, 7, 9, 11.1, 19.1, 23, 26.2, 29, 35.5, 39.2, 41.2, 48),
+"times": PackedFloat32Array(3, 7, 9, 11.1, 19.1, 24.5, 27.7, 30.5, 37, 40.7, 42.7, 49.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": ["WalkFront", false],
@@ -228,8 +237,8 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 1, 11, 12, 15, 19, 20, 23, 26, 26.2, 27, 29.5, 32.5, 33.5, 36.1, 39, 39.2, 40, 42.3, 45, 46, 49, 53, 56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.2, 1, 7.6, 8.6, 14.1, 15.1, 19.4, 20.4, 23.9, 24.9, 27.3, 27.5, 27.8, 30.5, 30.8, 32.4, 32.7, 34, 34.1, 37.9, 38.2, 40.5, 40.7, 40.8, 42.8, 43.1, 46.5, 46.6, 54.5, 57.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": ["1"],
 "method": &"change_background"
@@ -244,6 +253,9 @@ tracks/2/keys = {
 "method": &"wait_next_monolog"
 }, {
 "args": [],
+"method": &"wait_next_interaction"
+}, {
+"args": [],
 "method": &"wait_next_monolog"
 }, {
 "args": [],
@@ -251,6 +263,9 @@ tracks/2/keys = {
 }, {
 "args": [],
 "method": &"wait_next_monolog"
+}, {
+"args": [],
+"method": &"wait_next_interaction"
 }, {
 "args": [],
 "method": &"wait_next_monolog"
@@ -265,6 +280,9 @@ tracks/2/keys = {
 "method": &"wait_next_monolog"
 }, {
 "args": [],
+"method": &"wait_next_interaction"
+}, {
+"args": [],
 "method": &"wait_next_monolog"
 }, {
 "args": [],
@@ -272,6 +290,15 @@ tracks/2/keys = {
 }, {
 "args": [],
 "method": &"wait_next_monolog"
+}, {
+"args": [],
+"method": &"wait_next_interaction"
+}, {
+"args": [],
+"method": &"wait_next_monolog"
+}, {
+"args": [],
+"method": &"wait_next_interaction"
 }, {
 "args": [],
 "method": &"wait_next_monolog"
@@ -286,13 +313,13 @@ tracks/2/keys = {
 "method": &"wait_next_monolog"
 }, {
 "args": [],
-"method": &"wait_next_monolog"
-}, {
-"args": [],
 "method": &"wait_next_interaction"
 }, {
 "args": [],
 "method": &"wait_next_monolog"
+}, {
+"args": [],
+"method": &"wait_next_interaction"
 }, {
 "args": [],
 "method": &"wait_next_monolog"
@@ -353,6 +380,30 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Music:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_scigs")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Hero:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_w2j00"]
@@ -530,12 +581,28 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_d5tyw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hero:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-90, 254)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_41bma"]
 _data = {
 "ChoiceEndings": SubResource("Animation_1xi56"),
 "FailEnding": SubResource("Animation_hmjt3"),
 "Main": SubResource("Animation_jolqv"),
 "NoEnding": SubResource("Animation_w2j00"),
+"RESET": SubResource("Animation_d5tyw"),
 "RemoveEnding": SubResource("Animation_5kh7w")
 }
 
@@ -548,22 +615,66 @@ texture_region_size = Vector2i(128, 180)
 [sub_resource type="TileSet" id="TileSet_hscs7"]
 sources/0 = SubResource("TileSetAtlasSource_dtf8s")
 
+[sub_resource type="Resource" id="Resource_7eueo"]
+script = ExtResource("16_q3o6r")
+name = "Skelly"
+baseHealth = 2
+baseDamage = 5
+deployCost = 25
+eraseCost = 5
+goldReward = 20
+bloodlustReduction = 4
+
+[sub_resource type="Resource" id="Resource_p2y71"]
+script = ExtResource("16_q3o6r")
+name = "Slimin' Slime"
+baseHealth = 2
+baseDamage = 5
+deployCost = 25
+eraseCost = 5
+goldReward = 20
+bloodlustReduction = 4
+
+[sub_resource type="Resource" id="Resource_s833x"]
+script = ExtResource("18_h1wg1")
+name = "House"
+baseHealth = 3
+baseDestructability = 2
+
+[sub_resource type="Resource" id="Resource_wcqnu"]
+script = ExtResource("18_h1wg1")
+name = "House"
+baseHealth = 3
+baseDestructability = 2
+
+[sub_resource type="Resource" id="Resource_r8rvw"]
+script = ExtResource("18_h1wg1")
+name = "House2"
+baseHealth = 3
+baseDestructability = 2
+
+[sub_resource type="Resource" id="Resource_7ucnm"]
+script = ExtResource("24_5uqns")
+name = "Woman"
+baseMuerderability = 20
+deployCost = 5
+eraseCost = 7
+destruction = 5
+goodness = 3
+
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_umqn8")
 
 [node name="Artist" parent="." instance=ExtResource("2_2kxur")]
 
-[node name="EnemyHolder" type="Node2D" parent="."]
-
 [node name="MainPath" type="AnimationPlayer" parent="."]
 autoplay = "Main"
-speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_41bma")
 }
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_5l0qp")
+stream = ExtResource("3_scigs")
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -642,10 +753,64 @@ autowrap_mode = 3
 mouse_filter = 2
 
 [node name="Hero" parent="." instance=ExtResource("5_4gx6o")]
-position = Vector2(-85, -916)
+position = Vector2(-90, 254)
 
-[node name="Enemy" parent="." instance=ExtResource("13_5f0mt")]
-position = Vector2(76, -596)
+[node name="EnemyHolder" type="Node2D" parent="."]
+
+[node name="Enemy" parent="EnemyHolder" instance=ExtResource("13_5f0mt")]
+position = Vector2(32, -703)
+
+[node name="Enemy2" parent="EnemyHolder" instance=ExtResource("13_5f0mt")]
+position = Vector2(-939, -353)
+enemyData = ExtResource("15_0rtde")
+
+[node name="Enemy3" parent="EnemyHolder" instance=ExtResource("13_5f0mt")]
+position = Vector2(741, 42)
+enemyData = SubResource("Resource_7eueo")
+
+[node name="Enemy4" parent="EnemyHolder" instance=ExtResource("13_5f0mt")]
+position = Vector2(-925, 83)
+enemyData = SubResource("Resource_p2y71")
+
+[node name="Enemy5" parent="EnemyHolder" instance=ExtResource("13_5f0mt")]
+position = Vector2(225, -24)
+enemyData = SubResource("Resource_p2y71")
+
+[node name="StructureHolder" type="Node2D" parent="."]
+
+[node name="Structure" parent="StructureHolder" instance=ExtResource("16_m0oqx")]
+position = Vector2(80, -29)
+structureData = SubResource("Resource_s833x")
+
+[node name="Structure2" parent="StructureHolder" instance=ExtResource("16_m0oqx")]
+position = Vector2(-244, 0)
+structureData = SubResource("Resource_wcqnu")
+
+[node name="Structure3" parent="StructureHolder" instance=ExtResource("16_m0oqx")]
+position = Vector2(-238, 264)
+structureData = SubResource("Resource_r8rvw")
+
+[node name="NPCHolder" type="Node2D" parent="."]
+
+[node name="NPC" parent="NPCHolder" instance=ExtResource("20_dwmgb")]
+position = Vector2(983, -431)
+npcData = ExtResource("21_t1c1t")
+
+[node name="NPC3" parent="NPCHolder" instance=ExtResource("20_dwmgb")]
+position = Vector2(-49, -377)
+npcData = ExtResource("21_t1c1t")
+
+[node name="NPC5" parent="NPCHolder" instance=ExtResource("20_dwmgb")]
+position = Vector2(-833, 198)
+npcData = ExtResource("21_t1c1t")
+
+[node name="NPC2" parent="NPCHolder" instance=ExtResource("20_dwmgb")]
+position = Vector2(-19, 724)
+npcData = ExtResource("22_lji63")
+
+[node name="NPC4" parent="NPCHolder" instance=ExtResource("20_dwmgb")]
+position = Vector2(660, -86)
+npcData = SubResource("Resource_7ucnm")
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/Remove" to="." method="_on_remove_pressed"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/No" to="." method="_on_no_pressed"]

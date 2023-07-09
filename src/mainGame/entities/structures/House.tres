@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_cggre")
-name = ""
+name = "House"
 baseHealth = 6
 baseDestructability = 35

@@ -15,7 +15,7 @@ func _ready():
 	stats.health = structureData.baseHealth
 	stats.destructability = structureData.baseDestructability
 	
-	animatedSprite.play(stats.name+" Good")
+	animatedSprite.play(structureData.name+" Good")
 	
 	_connectSignals()
 
