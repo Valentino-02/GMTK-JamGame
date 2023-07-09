@@ -14,8 +14,8 @@ signal heroLostNPC
 @export_range(0,999) var baseGold : int
 
 @onready var attackModule : AttackModule = $AttackModule
-@onready var lifeBar : ProgressBar = $Lifebar
-@onready var BloodlustBar : ProgressBar = $BloodlustBar
+@onready var lifeBar : TextureProgressBar = $Lifebar
+@onready var BloodlustBar : TextureProgressBar = $BloodlustBar
 
 var heroStats := HeroStats.new()
 
