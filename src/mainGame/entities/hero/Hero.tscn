@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://drdr270irnb58"]
+[gd_scene load_steps=39 format=3 uid="uid://drdr270irnb58"]
 
 [ext_resource type="Script" path="res://src/mainGame/entities/hero/Hero.gd" id="1_33825"]
 [ext_resource type="Texture2D" uid="uid://dkaq2d8w00ngt" path="res://assets/Characters/Protag_Idle.png" id="2_a2jo2"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://djothv4xaon4" path="res://assets/Characters/Protag_Move.png" id="5_epd5n"]
 [ext_resource type="Texture2D" uid="uid://cpy1gy5mvj4m2" path="res://assets/UI/Health-empty.png" id="7_wusxn"]
 [ext_resource type="Texture2D" uid="uid://evad3n7mv0ls" path="res://assets/UI/Health-full.png" id="8_551ay"]
+[ext_resource type="Texture2D" uid="uid://bg0r3nlyxd5mg" path="res://assets/UI/Bloodlust-empty.png" id="9_t0uuv"]
+[ext_resource type="Texture2D" uid="uid://bgijkgkjhi16q" path="res://assets/UI/Bloodlust-full.png" id="10_8iha1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68q15"]
 atlas = ExtResource("2_e4o61")
@@ -296,6 +298,8 @@ offset_left = -62.0
 offset_top = -132.0
 offset_right = 61.0
 offset_bottom = -105.0
+texture_under = ExtResource("9_t0uuv")
+texture_progress = ExtResource("10_8iha1")
 
 [node name="BloodlustTimer" type="Timer" parent="."]
 wait_time = 0.5
