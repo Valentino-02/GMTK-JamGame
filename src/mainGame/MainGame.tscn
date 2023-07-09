@@ -449,4 +449,4 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="Hero" parent="." instance=ExtResource("5_4gx6o")]
-position = Vector2(-1047, -211)
+position = Vector2(-40, 74)

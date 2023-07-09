@@ -1,6 +1,7 @@
 extends Control
 
 var text_index:int = 0
+var current_story:Array[Array]
 
 @export var text_speed:float = 0.1
 @export var end_cooldown:float = 2
@@ -9,8 +10,13 @@ func _ready():
 	$TextureRect.modulate.a = 0
 
 func display_next_monolog(text_array):
+	current_story = text_array
+	text_index = 0
+	
 	for t in text_array:
 		await GlobalScenes.CurrentMainScene.nextMonolog
+		
+		if text_index >=  text_array.size() or current_story != text_array: return
 		$%AnimationPlayer.play_backwards("Fade")
 		$%Label.text = text_array[text_index][1]
 		display_chara(text_array[text_index][0])
