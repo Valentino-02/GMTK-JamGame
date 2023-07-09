@@ -64,7 +64,10 @@ func display_chara(type:String):
 	match type:
 		"H":
 			$AudioStreamPlayer.pitch_scale = 1.2
-			$%Chara.texture = null # TODO
+			$%Chara.texture = load("res://assets/Characters/Portrait.png")
 		"C":
 			$AudioStreamPlayer.pitch_scale = 0.8
 			$%Chara.texture = null
+		"H2":
+			$AudioStreamPlayer.pitch_scale = 1.2
+			$%Chara.texture = load("res://assets/Characters/Portrai2t.png")
