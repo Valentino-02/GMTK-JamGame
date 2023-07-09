@@ -4,8 +4,7 @@ class_name Structure
 
 @export var structureData: StructureData
 
-@onready var animatedSprite = $AnimatedSprite2D
-@onready var eraseButtonCross = $EraseButton/Cross
+@onready var animatedSprite = $Sprite2D
 
 var stats := StructureStats.new()
 
@@ -13,6 +12,8 @@ var stats := StructureStats.new()
 func _ready():
 	stats.health = structureData.baseHealth
 	stats.destructability = structureData.baseDestructability
+	
+	animatedSprite.play(stats.name+" Good")
 	
 	_connectSignals()
 
@@ -28,7 +29,8 @@ func _connectSignals() -> void:
 func _die() -> void:
 	Particles.play_death_particles($GPUParticles2D)
 	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
-	queue_free()
+	animatedSprite.play(stats.name+" Bad")
+#	queue_free()
 
 
 

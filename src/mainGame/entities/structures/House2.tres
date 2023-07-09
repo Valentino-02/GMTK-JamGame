@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StructureData" load_steps=2 format=3 uid="uid://cxb30pltg4f5c"]
+
+[ext_resource type="Script" path="res://src/mainGame/entities/structures/StructureData.gd" id="1_ecloq"]
+
+[resource]
+script = ExtResource("1_ecloq")
+name = "House2"
+baseHealth = 3
+baseDestructability = 2

@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5tbjgx1bwpo3"]
+[gd_scene load_steps=19 format=3 uid="uid://b5tbjgx1bwpo3"]
 
 [ext_resource type="Script" path="res://src/mainGame/entities/structures/Structure.gd" id="1_18826"]
-[ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="1_sqw4p"]
 [ext_resource type="Resource" uid="uid://tngaj1aupg2c" path="res://src/mainGame/entities/structures/TestStructureData.tres" id="2_1wcxb"]
+[ext_resource type="Texture2D" uid="uid://d15h5x1uvjaac" path="res://assets/House.png" id="3_b5oau"]
 [ext_resource type="AudioStream" uid="uid://bq1kih7rhghd8" path="res://assets/Audio/SFX/Player/footsteps_01.wav" id="4_o73ho"]
 [ext_resource type="AudioStream" uid="uid://e77ii7c3x5jh" path="res://assets/Audio/SFX/Player/footsteps_02.wav" id="5_1blu1"]
 [ext_resource type="AudioStream" uid="uid://b3a0i1kgbowfc" path="res://assets/Audio/SFX/Player/footsteps_03.wav" id="6_gc3u7"]
@@ -11,6 +11,57 @@
 [ext_resource type="AudioStream" uid="uid://digudr31v4n75" path="res://assets/Audio/SFX/Player/footsteps_06.wav" id="9_tduon"]
 [ext_resource type="AudioStream" uid="uid://ges15csg84jb" path="res://assets/Audio/SFX/Player/footsteps_07.wav" id="10_821hq"]
 [ext_resource type="AudioStream" uid="uid://cr31sqbib6bo0" path="res://assets/Audio/SFX/Player/footsteps_08.wav" id="11_vkpfy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s71bh"]
+atlas = ExtResource("3_b5oau")
+region = Rect2(158, 0, 158, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gijoc"]
+atlas = ExtResource("3_b5oau")
+region = Rect2(0, 0, 158, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3d8l"]
+atlas = ExtResource("3_b5oau")
+region = Rect2(158, 152, 158, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyh8c"]
+atlas = ExtResource("3_b5oau")
+region = Rect2(0, 152, 158, 152)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbuw2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s71bh")
+}],
+"loop": true,
+"name": &"House Bad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gijoc")
+}],
+"loop": true,
+"name": &"House Good",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3d8l")
+}],
+"loop": true,
+"name": &"House2 Bad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyh8c")
+}],
+"loop": true,
+"name": &"House2 Good",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npl21"]
 radius = 66.1891
@@ -38,9 +89,9 @@ stream_7/weight = 1.0
 script = ExtResource("1_18826")
 structureData = ExtResource("2_1wcxb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.180392, 0.180392, 0.180392, 1)
-texture = ExtResource("1_sqw4p")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pbuw2")
+animation = &"House Bad"
 
 [node name="Area2D" type="Area2D" parent="."]
 
