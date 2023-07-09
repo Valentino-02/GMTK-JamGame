@@ -34,6 +34,7 @@ func _ready():
 	_connectSignals()
 
 
+
 func recieveDamage(damage: int) -> void:
 	stats.health -= damage
 	Particles.play_particles($GPUParticles2D, "health", false)
@@ -51,6 +52,7 @@ func _erase() -> void:
 func _die() -> void:
 	Particles.play_death_particles($GPUParticles2D)
 	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
+	hero = GlobalScenes.hero
 	hero.giveDeathReward(stats.bloodLustReduction, stats.goldReward)
 	queue_free()
 

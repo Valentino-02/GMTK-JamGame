@@ -13,8 +13,8 @@ class_name MainGameUI
 
 func _ready():
 	## This is just to test
-	enemyHolder.holdedEntityData = preload("res://src/mainGame/entities/enemies/TestEnemyData.tres")
-	npcHolder.holdedEntityData = preload("res://src/mainGame/entities/NPCs/TestNPCData.tres")
+	enemyHolder.holdedEntityData = preload("res://src/mainGame/entities/enemies/SlimeEnemyData.tres")
+	npcHolder.holdedEntityData = preload("res://src/mainGame/entities/NPCs/Man.tres")
 	itemHolder.holdedItemData = preload("res://src/mainGame/items/TestItemData.tres")
 
 func _on_artist_energy_changed(newValue: int) -> void:

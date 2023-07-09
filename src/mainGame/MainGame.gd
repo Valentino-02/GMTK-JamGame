@@ -70,7 +70,9 @@ func _on_ask_can_drop_here(position: Vector2, entityData: Resource) -> void:
 	if entityData is EnemyData:
 		artist.energy -= entityData.deployCost
 		var enemy = createEnemy(entityData)
-		addEntity(enemy, position)
+		var enem = preload("res://src/mainGame/entities/enemies/Enemy.tscn").instantiate()
+		enem.enemyData = entityData
+		addEntity(enem, position)
 		confirmEntityDrop.emit()
 	if entityData is NPCData:
 		artist.energy -= entityData.deployCost
