@@ -33,6 +33,7 @@ func _die() -> void:
 	await get_tree().create_timer($GPUParticles2D.lifetime).timeout
 	animatedSprite.play(structureData.name+" Bad")
 	GlobalScenes.CurrentMainScene.nextInteraction.emit()
+	if hero == null: hero = GlobalScenes.CurrentMainScene.get_node("%Hero")
 	hero.buildingReward(self)
 #	queue_free()
 

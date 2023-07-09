@@ -159,6 +159,7 @@ func _on_stat_changed(stat: int, newValue) -> void:
 #	print(stat," ", Constants.HERO_STATS.health, " ", newValue, " " ,lifeBar.value)
 	if stat == Constants.HERO_STATS.health:
 		lifeBar.value = newValue
+		
 	if stat == Constants.HERO_STATS.bloodlust:
 		BloodlustBar.value = newValue
 

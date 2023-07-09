@@ -30,7 +30,8 @@ var health : int :
 		health = clamp(newValue,0, 999)
 		statChanged.emit(Constants.HERO_STATS.health, health)
 		if health == 0:
-			heroDied.emit()
+			GlobalScenes.CurrentMainScene.play_anim("FailEnding")
+#			heroDied.emit()
 
 var gold : int :
 	set(newValue):
