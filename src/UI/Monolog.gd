@@ -14,19 +14,26 @@ func display_next_monolog(text_array):
 	text_index = 0
 	
 	for t in text_array:
+		# wait for next text
 		await GlobalScenes.CurrentMainScene.nextMonolog
 		
-		if text_index >=  text_array.size() or current_story != text_array: return
+		if text_index >= text_array.size() or current_story != text_array: return
+		# textbox appears
 		$%AnimationPlayer.play_backwards("Fade")
+		# display betatest number
+		if text_array == STORY.MONOLOGS and text_index == 0:
+			$%Label.text = "Betatest n°"+str(GlobalScenes.retry_number+107)+text_array[text_index][1]
+		# setup textbox
 		$%Label.text = text_array[text_index][1]
 		display_chara(text_array[text_index][0])
 		await $%AnimationPlayer.animation_finished
-		
+		# display characters
 		for i in $%Label.get_total_character_count():
 			$%Label.visible_characters += 1
 			await get_tree().create_timer(text_speed).timeout
-		
+		#wait for reading cooldown
 		await get_tree().create_timer(end_cooldown).timeout
+		# textbox disappears
 		reset_textbox()
 		text_index += 1
 

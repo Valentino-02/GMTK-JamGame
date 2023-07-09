@@ -1,5 +1,6 @@
 extends Node
 
+var retry_number:int = -1
 
 var RootScene : RootScene
 var UI_Holder : CanvasLayer
