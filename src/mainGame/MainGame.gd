@@ -103,3 +103,11 @@ func change_background(index:String):
 		"12","2": $Music.stream = load("res://assets/Audio/Music/Stage 2 Corruption.wav")
 		"23","3": $Music.stream = load("res://assets/Audio/Music/Stage 3 Corruption.wav")
 	
+
+
+func _on_remove_pressed():
+	$MainPath.play("RemoveEnding")
+
+
+func _on_no_pressed():
+	$MainPath.play("NoEnding")
