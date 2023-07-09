@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://bmx3ulu2lg8kt"]
+
+[ext_resource type="AudioStream" uid="uid://c6xshohnouov6" path="res://assets/Audio/SFX/Player/Hero_hit_01.wav" id="1_f552e"]
+[ext_resource type="AudioStream" uid="uid://blfl4sf2x2twd" path="res://assets/Audio/SFX/Player/Hero_hit_02.wav" id="2_j2m25"]
+[ext_resource type="AudioStream" uid="uid://012i6ualsegg" path="res://assets/Audio/SFX/Player/Hero_hit_03.wav" id="3_qxmd6"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_f552e")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_j2m25")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_qxmd6")
+stream_2/weight = 1.0

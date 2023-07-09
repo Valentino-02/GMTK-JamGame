@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://c0xsc0yofn673"]
+
+[ext_resource type="AudioStream" uid="uid://biqrx8qc4bqo4" path="res://assets/Audio/SFX/Player/sword_slash.wav" id="1_8btfx"]
+[ext_resource type="AudioStream" uid="uid://dai6u8t8hl1tn" path="res://assets/Audio/SFX/Player/sword_slash_2.wav" id="2_uynk3"]
+[ext_resource type="AudioStream" uid="uid://2uecrcfbejpe" path="res://assets/Audio/SFX/Player/sword_slash_3.wav" id="3_dg225"]
+[ext_resource type="AudioStream" uid="uid://b1mxkxuqh1cuj" path="res://assets/Audio/SFX/Player/sword_slash_4.wav" id="4_omtui"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_8btfx")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_uynk3")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_dg225")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_omtui")
+stream_3/weight = 1.0

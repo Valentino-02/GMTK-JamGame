@@ -30,6 +30,7 @@ func display_next_monolog(text_array):
 		# display characters
 		for i in $%Label.get_total_character_count():
 			$%Label.visible_characters += 1
+			if $%Label.text[i] == " ": $AudioStreamPlayer.play()
 			await get_tree().create_timer(text_speed).timeout
 		#wait for reading cooldown
 		await get_tree().create_timer(end_cooldown).timeout
@@ -59,5 +60,9 @@ func read_fail_ending():
 
 func display_chara(type:String):
 	match type:
-		"H": $%Chara.texture = null # TODO
-		"C": $%Chara.texture = null
+		"H":
+			$AudioStreamPlayer.pitch_scale = 1.2
+			$%Chara.texture = null # TODO
+		"C":
+			$AudioStreamPlayer.pitch_scale = 0.8
+			$%Chara.texture = null

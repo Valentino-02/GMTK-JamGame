@@ -25,6 +25,7 @@ func _on_artist_energy_changed(newValue: int) -> void:
 func _on_hero_gold_changed(newValue: int) -> void:
 	heroGoldLabel.text = 'Gold: ' + str(newValue)
 	itemHolder._on_hero_gold_changed(newValue)
+	Audio._play(load("res://assets/Audio/SFX/Coin.tres"))
 
 func _on_destruction_changed(newValue) -> void:
 	destructionBar.value = newValue

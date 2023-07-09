@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://bdsqlex5f5w2g"]
+
+[ext_resource type="AudioStream" uid="uid://duulr6txhjr1h" path="res://assets/Audio/SFX/Player/low_health_Warnig_00.wav" id="1_maieu"]
+[ext_resource type="AudioStream" uid="uid://c3dct7gjw6quw" path="res://assets/Audio/SFX/Player/low_health_Warnig_01.wav" id="2_jl62m"]
+[ext_resource type="AudioStream" uid="uid://bnwsyot6tskxf" path="res://assets/Audio/SFX/Player/low_health_Warnig_02.wav" id="3_ocp4f"]
+[ext_resource type="AudioStream" uid="uid://bwodj506hm2gc" path="res://assets/Audio/SFX/Player/low_health_Warnig_03.wav" id="4_b5hpv"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_maieu")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_jl62m")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_ocp4f")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_b5hpv")
+stream_3/weight = 1.0

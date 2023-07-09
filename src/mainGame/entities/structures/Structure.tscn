@@ -1,11 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5tbjgx1bwpo3"]
+[gd_scene load_steps=14 format=3 uid="uid://b5tbjgx1bwpo3"]
 
 [ext_resource type="Script" path="res://src/mainGame/entities/structures/Structure.gd" id="1_18826"]
 [ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="1_sqw4p"]
 [ext_resource type="Resource" uid="uid://tngaj1aupg2c" path="res://src/mainGame/entities/structures/TestStructureData.tres" id="2_1wcxb"]
+[ext_resource type="AudioStream" uid="uid://bq1kih7rhghd8" path="res://assets/Audio/SFX/Player/footsteps_01.wav" id="4_o73ho"]
+[ext_resource type="AudioStream" uid="uid://e77ii7c3x5jh" path="res://assets/Audio/SFX/Player/footsteps_02.wav" id="5_1blu1"]
+[ext_resource type="AudioStream" uid="uid://b3a0i1kgbowfc" path="res://assets/Audio/SFX/Player/footsteps_03.wav" id="6_gc3u7"]
+[ext_resource type="AudioStream" uid="uid://6lb3jj2m56ui" path="res://assets/Audio/SFX/Player/footsteps_04.wav" id="7_eoine"]
+[ext_resource type="AudioStream" uid="uid://dbyhad2757xwq" path="res://assets/Audio/SFX/Player/footsteps_05.wav" id="8_fv0mc"]
+[ext_resource type="AudioStream" uid="uid://digudr31v4n75" path="res://assets/Audio/SFX/Player/footsteps_06.wav" id="9_tduon"]
+[ext_resource type="AudioStream" uid="uid://ges15csg84jb" path="res://assets/Audio/SFX/Player/footsteps_07.wav" id="10_821hq"]
+[ext_resource type="AudioStream" uid="uid://cr31sqbib6bo0" path="res://assets/Audio/SFX/Player/footsteps_08.wav" id="11_vkpfy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npl21"]
 radius = 66.1891
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_b27dl"]
+streams_count = 8
+stream_0/stream = ExtResource("4_o73ho")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_1blu1")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_gc3u7")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_eoine")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_fv0mc")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("9_tduon")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("10_821hq")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("11_vkpfy")
+stream_7/weight = 1.0
 
 [node name="Structure" type="Node2D"]
 script = ExtResource("1_18826")
@@ -27,3 +54,4 @@ lifetime = 1.5
 one_shot = true
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_b27dl")
