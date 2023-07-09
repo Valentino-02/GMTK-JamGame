@@ -168,5 +168,4 @@ func play_walk_sounds():
 	$SFX.stream = load("res://assets/Audio/SFX/Footsteps.tres")
 	while current_anim in ["WalkFront", "WalkSide", "WalkBack"]:
 		$SFX.play()
-		print("hey")
 		await $SFX.finished

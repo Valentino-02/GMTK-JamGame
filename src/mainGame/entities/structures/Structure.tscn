@@ -94,6 +94,7 @@ sprite_frames = SubResource("SpriteFrames_pbuw2")
 animation = &"House Bad"
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.93134, 1.93134)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_npl21")
