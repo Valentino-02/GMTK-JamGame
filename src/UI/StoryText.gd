@@ -24,8 +24,8 @@ const MONOLOGS:Array[Array] = [
 	["C","I don't want to hurt you. But what else can I do ??"],
 	["H","Stop, stop, STOP! You can’t tweak your way out of the inevitable!"],
 	# 7
-	["C","..."],
-	["H","You...you don’t have the guts to get rid of me! You won’t. You wouldn’t."],
+#	["C","..."],
+#	["H","You...you don’t have the guts to get rid of me! You won’t. You wouldn’t."],
 ]
 
 

@@ -111,3 +111,6 @@ func _on_remove_pressed():
 
 func _on_no_pressed():
 	$MainPath.play("NoEnding")
+
+func play_anim(anim:String):
+	$MainPath.play(anim)
