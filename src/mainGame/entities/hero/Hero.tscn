@@ -271,6 +271,7 @@ visible = false
 shape = SubResource("CircleShape2D_1qx4u")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false

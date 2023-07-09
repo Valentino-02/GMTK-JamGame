@@ -1,8 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy6rfg8vo74ya"]
+[gd_scene load_steps=17 format=3 uid="uid://b8mv2j67p6v1o"]
 
 [ext_resource type="Script" path="res://src/mainGame/MainGame.gd" id="1_umqn8"]
 [ext_resource type="PackedScene" uid="uid://caf56my2j70l6" path="res://src/mainGame/artist/Artist.tscn" id="2_2kxur"]
+[ext_resource type="Texture2D" uid="uid://ckdpwiqqpgkx4" path="res://assets/mapGMTK/Stage1.png" id="3_h5nlv"]
+[ext_resource type="Texture2D" uid="uid://d2rx5vbocmw30" path="res://assets/mapGMTK/Level_1.png" id="4_d21n8"]
 [ext_resource type="PackedScene" uid="uid://c7lm71kklyqd6" path="res://src/UI/Monolog.tscn" id="4_mh4sv"]
+[ext_resource type="Texture2D" uid="uid://btpb828a8bpwo" path="res://assets/mapGMTK/Ground Tiles.png" id="5_1sctc"]
 [ext_resource type="PackedScene" uid="uid://drdr270irnb58" path="res://src/mainGame/entities/hero/Hero.tscn" id="5_4gx6o"]
 
 [sub_resource type="Animation" id="Animation_1xi56"]
@@ -373,7 +376,14 @@ _data = {
 "RemoveEnding": SubResource("Animation_5kh7w")
 }
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dtf8s"]
+texture = ExtResource("5_1sctc")
+margins = Vector2i(16, 0)
+texture_region_size = Vector2i(128, 180)
+1:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_hscs7"]
+sources/0 = SubResource("TileSetAtlasSource_dtf8s")
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_umqn8")
@@ -390,12 +400,20 @@ libraries = {
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_hscs7")
-format = 2
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Backdrop" type="Sprite2D" parent="Map"]
+texture = ExtResource("3_h5nlv")
+
+[node name="Map" type="Sprite2D" parent="Map"]
+texture = ExtResource("4_d21n8")
 
 [node name="BackgroundAssets" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_hscs7")
+format = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -431,6 +449,4 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="Hero" parent="." instance=ExtResource("5_4gx6o")]
-position = Vector2(78, 321)
-baseDefence = 0
-baseGold = 0
+position = Vector2(-1047, -211)

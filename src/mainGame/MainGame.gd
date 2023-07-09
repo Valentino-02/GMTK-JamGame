@@ -93,3 +93,7 @@ func wait_next_interaction():
 
 func _reset_game():
 	reset_game.emit()
+
+func change_background(index:String):
+	$Map/Backdrop.texture = load("res://assets/mapGMTK/Stage"+index+".png")
+	$Map/Map.texture = load("res://assets/mapGMTK/Level_"+index+".png")
