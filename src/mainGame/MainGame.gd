@@ -113,4 +113,5 @@ func _on_no_pressed():
 	$MainPath.play("NoEnding")
 
 func play_anim(anim:String):
+	if anim == "ChoiceEndings": $MainPath.speed_scale = 1
 	$MainPath.play(anim)

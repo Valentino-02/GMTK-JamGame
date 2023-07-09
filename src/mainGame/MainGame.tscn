@@ -547,6 +547,7 @@ script = ExtResource("1_umqn8")
 
 [node name="MainPath" type="AnimationPlayer" parent="."]
 autoplay = "Main"
+speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_41bma")
 }
