@@ -1,10 +1,52 @@
-[gd_scene load_steps=7 format=3 uid="uid://bseug5jig2jk2"]
+[gd_scene load_steps=13 format=3 uid="uid://bseug5jig2jk2"]
 
 [ext_resource type="Script" path="res://src/mainGame/entities/NPCs/NPC.gd" id="1_gqg4k"]
-[ext_resource type="Texture2D" uid="uid://c6614d03fi3nc" path="res://icon.svg" id="2_kshco"]
 [ext_resource type="Resource" uid="uid://cpws3b702jq3p" path="res://src/mainGame/entities/NPCs/TestNPCData.tres" id="2_m2ca1"]
+[ext_resource type="Texture2D" uid="uid://knsq7dfwt634" path="res://assets/Characters/NPC2.png" id="3_060yk"]
 [ext_resource type="PackedScene" uid="uid://bn5k0fs4pomu" path="res://src/UI/EntityEraseBtn.tscn" id="3_gmpi4"]
+[ext_resource type="Texture2D" uid="uid://dwwykkl1y5p68" path="res://assets/Characters/NPC1-Idle.png" id="4_7x32b"]
 [ext_resource type="Material" uid="uid://ds5hywdnlufaq" path="res://assets/Particles/ExplosionParticles.tres" id="5_148en"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj5ej"]
+atlas = ExtResource("3_060yk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch8vu"]
+atlas = ExtResource("3_060yk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1a6c"]
+atlas = ExtResource("4_7x32b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sr6x"]
+atlas = ExtResource("4_7x32b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbjo8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj5ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch8vu")
+}],
+"loop": true,
+"name": &"Man Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1a6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sr6x")
+}],
+"loop": true,
+"name": &"Woman Idle",
+"speed": 3.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w3282"]
 radius = 70.0643
@@ -14,10 +56,8 @@ script = ExtResource("1_gqg4k")
 npcData = ExtResource("2_m2ca1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-
-[node name="TemporarySprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0.956863, 0.101961, 1)
-texture = ExtResource("2_kshco")
+sprite_frames = SubResource("SpriteFrames_qbjo8")
+animation = &"Man Idle"
 
 [node name="EraseButton" parent="." instance=ExtResource("3_gmpi4")]
 

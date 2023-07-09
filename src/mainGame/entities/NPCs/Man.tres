@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NPCData" load_steps=2 format=3 uid="uid://n4x1vmol6uy4"]
+
+[ext_resource type="Script" path="res://src/mainGame/entities/NPCs/NPC_Data.gd" id="1_8b03i"]
+
+[resource]
+script = ExtResource("1_8b03i")
+name = "Man"
+baseMuerderability = 20
+deployCost = 5
+eraseCost = 7
+destruction = 5
+goodness = 3
