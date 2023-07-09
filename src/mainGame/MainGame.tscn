@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b8mv2j67p6v1o"]
+[gd_scene load_steps=32 format=3 uid="uid://b8mv2j67p6v1o"]
 
 [ext_resource type="Script" path="res://src/mainGame/MainGame.gd" id="1_umqn8"]
 [ext_resource type="PackedScene" uid="uid://caf56my2j70l6" path="res://src/mainGame/artist/Artist.tscn" id="2_2kxur"]
@@ -16,12 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://cl0yyj3bikhwy" path="res://src/mainGame/entities/enemies/Enemy.tscn" id="13_5f0mt"]
 [ext_resource type="Resource" uid="uid://ws0srjn87cwc" path="res://src/mainGame/entities/enemies/SkellyEnemyData.tres" id="15_0rtde"]
 [ext_resource type="PackedScene" uid="uid://b5tbjgx1bwpo3" path="res://src/mainGame/entities/structures/Structure.tscn" id="16_m0oqx"]
-[ext_resource type="Script" path="res://src/mainGame/entities/enemies/EnemyData.gd" id="16_q3o6r"]
-[ext_resource type="Script" path="res://src/mainGame/entities/structures/StructureData.gd" id="18_h1wg1"]
+[ext_resource type="Resource" uid="uid://blnq30b0lerh2" path="res://src/mainGame/entities/structures/House.tres" id="17_b2gxe"]
+[ext_resource type="Resource" uid="uid://bbvaqwu0gg55a" path="res://src/mainGame/entities/structures/House3.tres" id="18_hipdn"]
+[ext_resource type="Resource" uid="uid://cxb30pltg4f5c" path="res://src/mainGame/entities/structures/House2.tres" id="19_624gt"]
 [ext_resource type="PackedScene" uid="uid://bseug5jig2jk2" path="res://src/mainGame/entities/NPCs/NPC.tscn" id="20_dwmgb"]
 [ext_resource type="Resource" uid="uid://n4x1vmol6uy4" path="res://src/mainGame/entities/NPCs/Man.tres" id="21_t1c1t"]
 [ext_resource type="Resource" uid="uid://cc6hw1j3vc8ij" path="res://src/mainGame/entities/NPCs/Woman.tres" id="22_lji63"]
-[ext_resource type="Script" path="res://src/mainGame/entities/NPCs/NPC_Data.gd" id="24_5uqns"]
 
 [sub_resource type="Animation" id="Animation_1xi56"]
 resource_name = "ChoiceEndings"
@@ -615,53 +615,6 @@ texture_region_size = Vector2i(128, 180)
 [sub_resource type="TileSet" id="TileSet_hscs7"]
 sources/0 = SubResource("TileSetAtlasSource_dtf8s")
 
-[sub_resource type="Resource" id="Resource_7eueo"]
-script = ExtResource("16_q3o6r")
-name = "Skelly"
-baseHealth = 2
-baseDamage = 5
-deployCost = 25
-eraseCost = 5
-goldReward = 20
-bloodlustReduction = 4
-
-[sub_resource type="Resource" id="Resource_p2y71"]
-script = ExtResource("16_q3o6r")
-name = "Slimin' Slime"
-baseHealth = 2
-baseDamage = 5
-deployCost = 25
-eraseCost = 5
-goldReward = 20
-bloodlustReduction = 4
-
-[sub_resource type="Resource" id="Resource_s833x"]
-script = ExtResource("18_h1wg1")
-name = "House"
-baseHealth = 3
-baseDestructability = 2
-
-[sub_resource type="Resource" id="Resource_wcqnu"]
-script = ExtResource("18_h1wg1")
-name = "House"
-baseHealth = 3
-baseDestructability = 2
-
-[sub_resource type="Resource" id="Resource_r8rvw"]
-script = ExtResource("18_h1wg1")
-name = "House2"
-baseHealth = 3
-baseDestructability = 2
-
-[sub_resource type="Resource" id="Resource_7ucnm"]
-script = ExtResource("24_5uqns")
-name = "Woman"
-baseMuerderability = 20
-deployCost = 5
-eraseCost = 7
-destruction = 5
-goodness = 3
-
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_umqn8")
 
@@ -766,29 +719,28 @@ enemyData = ExtResource("15_0rtde")
 
 [node name="Enemy3" parent="EnemyHolder" instance=ExtResource("13_5f0mt")]
 position = Vector2(741, 42)
-enemyData = SubResource("Resource_7eueo")
+enemyData = ExtResource("15_0rtde")
 
 [node name="Enemy4" parent="EnemyHolder" instance=ExtResource("13_5f0mt")]
 position = Vector2(-925, 83)
-enemyData = SubResource("Resource_p2y71")
 
 [node name="Enemy5" parent="EnemyHolder" instance=ExtResource("13_5f0mt")]
 position = Vector2(225, -24)
-enemyData = SubResource("Resource_p2y71")
+enemyData = ExtResource("15_0rtde")
 
 [node name="StructureHolder" type="Node2D" parent="."]
 
 [node name="Structure" parent="StructureHolder" instance=ExtResource("16_m0oqx")]
 position = Vector2(80, -29)
-structureData = SubResource("Resource_s833x")
+structureData = ExtResource("17_b2gxe")
 
 [node name="Structure2" parent="StructureHolder" instance=ExtResource("16_m0oqx")]
 position = Vector2(-244, 0)
-structureData = SubResource("Resource_wcqnu")
+structureData = ExtResource("19_624gt")
 
 [node name="Structure3" parent="StructureHolder" instance=ExtResource("16_m0oqx")]
 position = Vector2(-238, 264)
-structureData = SubResource("Resource_r8rvw")
+structureData = ExtResource("18_hipdn")
 
 [node name="NPCHolder" type="Node2D" parent="."]
 
@@ -810,7 +762,7 @@ npcData = ExtResource("22_lji63")
 
 [node name="NPC4" parent="NPCHolder" instance=ExtResource("20_dwmgb")]
 position = Vector2(660, -86)
-npcData = SubResource("Resource_7ucnm")
+npcData = ExtResource("22_lji63")
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/Remove" to="." method="_on_remove_pressed"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/No" to="." method="_on_no_pressed"]
