@@ -24,6 +24,16 @@ var destructionLevel : int :
 
 func _ready():
 	_connectSignals()
+	
+	for child in $EnemyHolder.get_children():
+		child.erased.connect(artist._on_enemy_erased)
+		artist.energyChanged.connect(child._on_artist_energy_changed)
+	for child in $NPCHolder.get_children():
+		child.erased.connect(artist._on_enemy_erased)
+		artist.energyChanged.connect(child._on_artist_energy_changed)
+#	for child in $StructureHolder.get_children():
+#		child.erased.connect(artist._on_enemy_erased)
+#		artist.energyChanged.connect(child._on_artist_energy_changed)
 
 
 func createEnemy(enemyData: EnemyData) -> Enemy:
