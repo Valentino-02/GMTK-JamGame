@@ -286,18 +286,20 @@ one_shot = true
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Lifebar" type="TextureProgressBar" parent="."]
-offset_left = -63.0
-offset_top = -97.0
-offset_right = 60.0
-offset_bottom = -70.0
+offset_left = -31.0
+offset_top = -54.0
+offset_right = 92.0
+offset_bottom = -27.0
+value = 50.0
 texture_under = ExtResource("7_wusxn")
 texture_progress = ExtResource("8_551ay")
 
 [node name="BloodlustBar" type="TextureProgressBar" parent="."]
-offset_left = -66.0
-offset_top = -140.0
-offset_right = 57.0
-offset_bottom = -40.0
+offset_left = -32.0
+offset_top = -85.0
+offset_right = 91.0
+offset_bottom = 15.0
+value = 50.0
 texture_under = ExtResource("9_vv5rc")
 texture_progress = ExtResource("10_cycl1")
 

@@ -16,6 +16,7 @@ func display_next_monolog(text_array):
 	for t in text_array:
 		# wait for next text
 		await GlobalScenes.CurrentMainScene.nextMonolog
+		$%Label.text = ""
 		
 		if text_index >= text_array.size() or current_story != text_array: return
 		# textbox appears
@@ -32,6 +33,7 @@ func display_next_monolog(text_array):
 			$%Label.visible_characters += 1
 			if $%Label.text[i] == " ": $AudioStreamPlayer.play()
 			await get_tree().create_timer(text_speed).timeout
+		$%Label.visible_characters = -1
 		#wait for reading cooldown
 		await get_tree().create_timer(end_cooldown).timeout
 		# textbox disappears

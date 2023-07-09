@@ -147,6 +147,7 @@ func _on_attack_module_area_exited(area):
 			enemiesDetected = oldEnemies
 
 func _on_stat_changed(stat: int, newValue) -> void:
+#	print(stat," ", Constants.HERO_STATS.health, " ", newValue, " " ,lifeBar.value)
 	if stat == Constants.HERO_STATS.health:
 		lifeBar.value = newValue
 	if stat == Constants.HERO_STATS.bloodlust:
@@ -161,10 +162,11 @@ func play_anim(anim:String, left:bool=false):
 	$AnimatedSprite2D.flip_h = left
 	
 	current_anim = anim
-	if anim == "Walk": play_walk_sounds()
+	if anim in ["WalkFront", "WalkSide", "WalkBack"]: play_walk_sounds()
 	
 func play_walk_sounds():
 	$SFX.stream = load("res://assets/Audio/SFX/Footsteps.tres")
-	while current_anim == "Walk":
+	while current_anim in ["WalkFront", "WalkSide", "WalkBack"]:
 		$SFX.play()
-		await  $SFX.finished
+		print("hey")
+		await $SFX.finished

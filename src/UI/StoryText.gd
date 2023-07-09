@@ -4,7 +4,7 @@ extends Node
 
 const MONOLOGS:Array[Array] = [
 	# 0
-	["C","I need to balance the difficulty, Hero became much stronger since...it happened. \nI swear, Hero, people are gonna love playing you ^^"],
+	["C",". I need to balance the difficulty, Hero became much stronger since...it happened. \nI swear, Hero, people are gonna love playing you ^^"],
 	# 1 per event
 	["C","You're really going strong on those. Calm down or I'll have to nerf your stats again :p"],
 	["H","You could craft everything! But no. It's not your \"vision\"."],
