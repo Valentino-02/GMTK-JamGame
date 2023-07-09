@@ -154,6 +154,7 @@ one_shot = true
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="AttackModule" parent="." instance=ExtResource("5_2lr2l")]
+scale = Vector2(0.463661, 0.463661)
 
 [connection signal="pressed" from="EraseButton" to="." method="_on_erase_button_pressed"]
 [connection signal="areaDetected" from="AttackModule" to="." method="_on_attack_module_area_detected"]

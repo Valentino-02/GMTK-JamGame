@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b8mv2j67p6v1o"]
+[gd_scene load_steps=22 format=3 uid="uid://b8mv2j67p6v1o"]
 
 [ext_resource type="Script" path="res://src/mainGame/MainGame.gd" id="1_umqn8"]
 [ext_resource type="PackedScene" uid="uid://caf56my2j70l6" path="res://src/mainGame/artist/Artist.tscn" id="2_2kxur"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://4fftw2elfv62" path="res://assets/UI/blunkbutton3.png" id="8_mhuhc"]
 [ext_resource type="FontFile" uid="uid://clr2qchtyoxhk" path="res://assets/Pixellari.ttf" id="8_qcnno"]
 [ext_resource type="Texture2D" uid="uid://dklob86wpk4i2" path="res://assets/UI/blunkbutton2.png" id="9_hvhul"]
+[ext_resource type="PackedScene" uid="uid://cl0yyj3bikhwy" path="res://src/mainGame/entities/enemies/Enemy.tscn" id="13_5f0mt"]
 
 [sub_resource type="Animation" id="Animation_1xi56"]
 resource_name = "ChoiceEndings"
@@ -227,14 +228,11 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 1, 5.5, 11, 12, 15, 19, 20, 23, 26, 26.2, 27, 29.5, 32.5, 33.5, 36.1, 39, 39.2, 40, 42.3, 45, 46, 49, 53, 56),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.2, 1, 11, 12, 15, 19, 20, 23, 26, 26.2, 27, 29.5, 32.5, 33.5, 36.1, 39, 39.2, 40, 42.3, 45, 46, 49, 53, 56),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": ["1"],
 "method": &"change_background"
-}, {
-"args": [],
-"method": &"wait_next_monolog"
 }, {
 "args": [],
 "method": &"wait_next_monolog"
@@ -588,7 +586,6 @@ mouse_filter = 2
 stretch_mode = 2
 
 [node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/CenterContainer"]
-modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_filter = 2
@@ -633,6 +630,9 @@ mouse_filter = 2
 
 [node name="Hero" parent="." instance=ExtResource("5_4gx6o")]
 position = Vector2(-989.545, -263)
+
+[node name="Enemy" parent="." instance=ExtResource("13_5f0mt")]
+position = Vector2(76, -596)
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/Remove" to="." method="_on_remove_pressed"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/BoxContainer/No" to="." method="_on_no_pressed"]

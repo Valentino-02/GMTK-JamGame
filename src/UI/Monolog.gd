@@ -24,7 +24,7 @@ func display_next_monolog(text_array):
 		if text_array == STORY.MONOLOGS and text_index == 0:
 			$%Label.text = "Betatest n°"+str(GlobalScenes.retry_number+107)+text_array[text_index][1]
 		# setup textbox
-		$%Label.text = text_array[text_index][1]
+		else: $%Label.text = text_array[text_index][1]
 		display_chara(text_array[text_index][0])
 		await $%AnimationPlayer.animation_finished
 		# display characters
