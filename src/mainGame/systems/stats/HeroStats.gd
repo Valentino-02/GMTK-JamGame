@@ -9,7 +9,7 @@ signal goldChanged(newValue)
 var bloodlust : int :
 	set(newValue): 
 		statEmitParticle.emit("bloodlust", (bloodlust < newValue))
-		bloodlust = clamp(newValue, 0, 99)
+		bloodlust = clamp(newValue, 0, 100)
 		statChanged.emit(Constants.HERO_STATS.bloodlust, bloodlust)
 
 var damage : int :
@@ -20,11 +20,12 @@ var damage : int :
 
 var defence : int :
 	set(newValue):
-		health = clamp(newValue,0, 999)
+		defence = clamp(newValue,0, 999)
 		statChanged.emit(Constants.HERO_STATS.defence, defence)
 
 var health : int :
 	set(newValue):
+		print('health', health,' ' , newValue)
 		statEmitParticle.emit("health", (health < newValue))
 		health = clamp(newValue,0, 999)
 		statChanged.emit(Constants.HERO_STATS.health, health)

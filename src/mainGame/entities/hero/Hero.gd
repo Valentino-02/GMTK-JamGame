@@ -10,9 +10,12 @@ signal heroLostNPC
 @export_range(0,99) var baseBloodlust : int
 @export_range(0,99) var baseDamage : int
 @export_range(0,999) var baseHealth : int
+@export_range(0,99) var baseDefence : int
 @export_range(0,999) var baseGold : int
 
 @onready var attackModule : AttackModule = $AttackModule
+@onready var lifeBar : ProgressBar = $Lifebar
+@onready var BloodlustBar : ProgressBar = $BloodlustBar
 
 var heroStats := HeroStats.new()
 
@@ -50,17 +53,28 @@ func _ready():
 	heroStats.damage = baseDamage
 	heroStats.health = baseHealth
 	heroStats.gold = baseGold
+	heroStats.defence = baseDefence
+	
+	lifeBar.max_value = baseHealth
+	lifeBar.value = heroStats.health
+	BloodlustBar.value = heroStats.bloodlust
 	
 	heroStats.statEmitParticle.connect(emit_stat_particle)
+	_connectSignal()
+
+func _connectSignal() -> void:
+	heroStats.statChanged.connect(_on_stat_changed)
 
 func emit_stat_particle(type:String, up:bool):
 	Particles.play_particles($GPUParticles2D, type, up)
 
-func _process(delta):
-	## just for testing
-	velocity = Vector2(1,0) * 20
-	move_and_slide()
+func recieveDamage(damage: int) -> void:
+	var dam = clamp(damage - heroStats.defence, 1, 999)
+	heroStats.health -= dam
 
+func giveDeathReward(bloodlustReduction, gold) -> void:
+	heroStats.bloodlust -= bloodlustReduction
+	heroStats.gold += gold
 
 func _shouldAttackNPC(npc: NPC) -> bool:
 	if heroStats.bloodlust >= npc.stats.murderability:
@@ -80,6 +94,11 @@ func _addItem(itemData) -> void:
 	heroStats.damage = itemData.bonusDamage
 	heroStats.health = itemData.bonusHealth
 
+func _destroyNPC(npc : NPC) -> void:
+	owner.destructionLevel += npc.stats.destruction
+
+func _forgiveNPC(npc: NPC) -> void:
+	owner.destructionLevel -= npc.stats.goodness
 
 func _on_item_purchased(itemData: ItemData, cost: int) -> void:
 	heroStats.gold -= cost
@@ -102,15 +121,12 @@ func _on_attack_module_area_detected(area):
 		var shouldAttack = _shouldAttackNPC(npc)
 		if shouldAttack:
 			npc.getsAttacked()
+			_destroyNPC(npc)
 			isWithNPC = false ## just for now, then later we would need to wait for an animation or dialogue
 		else:
-			var shouldGetReward = _shouldGetReward(npc)
-			print(shouldGetReward)
-			if shouldGetReward:
-				npc.givesReward()
-				isWithNPC = false ## just for now, then later we would need to wait for an animation or dialogue
-			else:
-				isWithNPC = false ## just for now, then later we would need to wait for an animation or dialogue
+			_forgiveNPC(npc)
+			isWithNPC = false ## just for now, then later we would need to wait for an animation or dialogue
+
 
 func _on_attack_module_area_exited(area):
 	if area.owner is Enemy or area.owner is Structure:
@@ -120,3 +136,12 @@ func _on_attack_module_area_exited(area):
 			oldEnemies.erase(enemy)
 			enemiesDetected = oldEnemies
 
+func _on_stat_changed(stat: int, newValue) -> void:
+	if stat == Constants.HERO_STATS.health:
+		lifeBar.value = newValue
+	if stat == Constants.HERO_STATS.bloodlust:
+		BloodlustBar.value = newValue
+
+
+func _on_bloodlust_timer_timeout():
+	heroStats.bloodlust += 1

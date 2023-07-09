@@ -16,8 +16,10 @@ signal reset_game
 
 var destructionLevel : int : 
 	set(newValue):
-		destructionLevel = clamp(newValue, 0, 999)
+		destructionLevel = clamp(newValue, 0, 100)
 		destructionLevelChanged.emit(destructionLevel)
+		if destructionLevel == 100:
+			_triggerDestruction()
 
 
 func _ready():
@@ -44,6 +46,9 @@ func addEntity(entity, position: Vector2) -> void:
 		npcHolder.add_child(entity)
 
 
+func _triggerDestruction() -> void:
+	pass
+
 func _connectSignals() -> void:
 	var gameUI = GlobalScenes.CurrentUI
 	if gameUI is MainGameUI:
@@ -56,6 +61,8 @@ func _connectSignals() -> void:
 		
 		hero.heroStats.goldChanged.connect(gameUI._on_hero_gold_changed)
 		gameUI.itemHolder.itemPurchased.connect(hero._on_item_purchased)
+		
+		destructionLevelChanged.connect(gameUI._on_destruction_changed)
 
 
 func _on_ask_can_drop_here(position: Vector2, entityData: Resource) -> void:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl0yyj3bikhwy"]
+[gd_scene load_steps=7 format=3 uid="uid://cl0yyj3bikhwy"]
 
 [ext_resource type="Script" path="res://src/mainGame/entities/enemies/Enemy.gd" id="1_ivfwx"]
 [ext_resource type="Resource" uid="uid://c3ds0ccraifby" path="res://src/mainGame/entities/enemies/TestEnemyData.tres" id="2_bkrf4"]
 [ext_resource type="Material" uid="uid://ds5hywdnlufaq" path="res://assets/Particles/ExplosionParticles.tres" id="3_o36fb"]
 [ext_resource type="PackedScene" uid="uid://bn5k0fs4pomu" path="res://src/UI/EntityEraseBtn.tscn" id="4_5ufjc"]
+[ext_resource type="PackedScene" uid="uid://b5ltrp8a64t2b" path="res://src/mainGame/entities/modules/AttackModule.tscn" id="5_2lr2l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01lb4"]
 radius = 69.3542
@@ -44,4 +45,8 @@ one_shot = true
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
+[node name="AttackModule" parent="." instance=ExtResource("5_2lr2l")]
+
 [connection signal="pressed" from="EraseButton" to="." method="_on_erase_button_pressed"]
+[connection signal="areaDetected" from="AttackModule" to="." method="_on_attack_module_area_detected"]
+[connection signal="doAttack" from="AttackModule" to="." method="_on_attack_module_do_attack"]

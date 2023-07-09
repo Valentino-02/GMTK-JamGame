@@ -6,6 +6,6 @@
 script = ExtResource("1_5uwh5")
 bonusDamage = 2
 bonusDefence = 1
-bonusHealth = 5
+bonusHealth = 27
 bonusBloodlust = 2
 itemCost = 25

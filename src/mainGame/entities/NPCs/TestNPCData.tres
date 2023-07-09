@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_ubhlg")
 name = ""
-baseMuerderability = 2
-baseDesiredGoodness = 2
+baseMuerderability = 20
 deployCost = 5
 eraseCost = 7
+destruction = 5
+goodness = 3

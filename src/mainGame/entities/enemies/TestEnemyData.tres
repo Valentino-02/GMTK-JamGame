@@ -6,7 +6,8 @@
 script = ExtResource("1_fbqjx")
 name = "test enemy"
 baseHealth = 2
-baseDamage = 3
-baseBravery = 5
+baseDamage = 5
 deployCost = 25
 eraseCost = 5
+goldReward = 20
+bloodlustReduction = 4

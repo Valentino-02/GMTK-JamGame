@@ -4,10 +4,15 @@ class_name EnemyStats
 signal died
 signal statChanged(stat, newValue)
 
-var bravery : int :
+var bloodLustReduction : int :
 	set(newValue):
-		bravery = clamp(newValue, 0, 99)
-		statChanged.emit(Constants.ENEMY_STATS.bravery, bravery)
+		bloodLustReduction = clamp(newValue, 0, 99)
+		statChanged.emit(Constants.ENEMY_STATS.bloodlustReduction, bloodLustReduction)
+
+var goldReward : int :
+	set(newValue):
+		goldReward = clamp(newValue, 0, 99)
+		statChanged.emit(Constants.ENEMY_STATS.goldReward, goldReward)
 
 var damage : int :
 	set(newValue):

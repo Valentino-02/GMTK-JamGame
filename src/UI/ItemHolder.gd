@@ -22,7 +22,7 @@ func _purchase() -> void:
 	_getNextItem()
 
 
-func on_hero_gold_changed(newValue) -> void:
+func _on_hero_gold_changed(newValue) -> void:
 	if newValue >= cost:
 		_purchase()
 

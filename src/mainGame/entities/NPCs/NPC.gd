@@ -22,7 +22,8 @@ var canErase : bool :
 
 func _ready():
 	stats.murderability = npcData.baseMuerderability
-	stats.desiredGoodness = npcData.baseDesiredGoodness
+	stats.goodness = npcData.goodness
+	stats.destruction = npcData.destruction
 	
 	_connectSignals()
 

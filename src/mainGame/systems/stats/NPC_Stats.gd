@@ -4,11 +4,15 @@ class_name NPC_Stats
 signal statChanged(stat, newValue)
 signal destroyed
 
-var desiredGoodness: int:
+var goodness: int:
 	set(newValue):
-		desiredGoodness = clamp(newValue, 0, 999)
-		statChanged.emit(Constants.NPC_STATS.desiredGoodness, desiredGoodness)
+		goodness = clamp(newValue, 0, 999)
+		statChanged.emit(Constants.NPC_STATS.goodness, goodness)
 
+var destruction: int:
+	set(newValue):
+		destruction = clamp(newValue, 0, 999)
+		statChanged.emit(Constants.NPC_STATS.destruction, destruction)
 
 var murderability: int :
 	set(newValue):

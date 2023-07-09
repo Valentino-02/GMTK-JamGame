@@ -14,58 +14,50 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_pi1u7")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 955.0
-offset_top = 32.0
-offset_right = 1102.0
-offset_bottom = 58.0
-text = "This is our game UI"
-
 [node name="ArtistEnergyLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 973.0
-offset_top = 107.0
-offset_right = 1013.0
-offset_bottom = 130.0
+offset_left = 843.0
+offset_top = 47.0
+offset_right = 905.0
+offset_bottom = 73.0
 text = "Energy: "
 
 [node name="EnemyHolder" parent="." instance=ExtResource("2_7brv4")]
 layout_mode = 1
-offset_left = 993.0
-offset_top = 266.0
-offset_right = -23.0
-offset_bottom = -246.0
+offset_left = 1007.0
+offset_top = 60.0
+offset_right = -9.0
+offset_bottom = -452.0
 
 [node name="NPCHolder" parent="." instance=ExtResource("2_7brv4")]
 layout_mode = 1
-offset_left = 993.0
-offset_top = 455.0
-offset_right = -23.0
-offset_bottom = -57.0
+offset_left = 1003.0
+offset_top = 271.0
+offset_right = -13.0
+offset_bottom = -241.0
 
 [node name="NextEnemyLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 983.0
-offset_top = 239.0
-offset_right = 1125.0
-offset_bottom = 265.0
+offset_left = 1051.0
+offset_top = 25.0
+offset_right = 1193.0
+offset_bottom = 51.0
 text = "NextEnemyHolder"
 
 [node name="NextNPCLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 985.0
-offset_top = 423.0
-offset_right = 1127.0
-offset_bottom = 449.0
+offset_left = 1045.0
+offset_top = 222.0
+offset_right = 1187.0
+offset_bottom = 248.0
 text = "NextNPCHolder"
 
 [node name="ItemHolder" parent="." instance=ExtResource("3_c5ald")]
 layout_mode = 1
-offset_left = 809.0
-offset_top = 448.0
-offset_right = 809.0
-offset_bottom = 448.0
+offset_left = 1041.0
+offset_top = 413.0
+offset_right = 1041.0
+offset_bottom = 413.0
 
 [node name="HeroGoldLabel" type="Label" parent="."]
 layout_mode = 0
@@ -74,3 +66,10 @@ offset_top = 542.0
 offset_right = 751.0
 offset_bottom = 568.0
 text = "Gold: "
+
+[node name="DestructionBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 41.0
+offset_right = 750.0
+offset_bottom = 68.0

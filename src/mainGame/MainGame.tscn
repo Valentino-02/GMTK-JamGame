@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy6rfg8vo74ya"]
+[gd_scene load_steps=13 format=3 uid="uid://cy6rfg8vo74ya"]
 
 [ext_resource type="Script" path="res://src/mainGame/MainGame.gd" id="1_umqn8"]
 [ext_resource type="PackedScene" uid="uid://caf56my2j70l6" path="res://src/mainGame/artist/Artist.tscn" id="2_2kxur"]
 [ext_resource type="PackedScene" uid="uid://c7lm71kklyqd6" path="res://src/UI/Monolog.tscn" id="4_mh4sv"]
-[ext_resource type="Texture2D" uid="uid://imu165k3ykcf" path="res://assets/Black.png" id="5_1vifi"]
 [ext_resource type="PackedScene" uid="uid://drdr270irnb58" path="res://src/mainGame/entities/hero/Hero.tscn" id="5_4gx6o"]
 
 [sub_resource type="Animation" id="Animation_1xi56"]
@@ -406,17 +405,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Transition" type="TextureRect" parent="CanvasLayer/CenterContainer"]
 custom_minimum_size = Vector2(1024, 600)
 layout_mode = 2
-texture = ExtResource("5_1vifi")
+mouse_filter = 2
 stretch_mode = 2
 
 [node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/CenterContainer"]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Remove" type="TextureButton" parent="CanvasLayer/CenterContainer/BoxContainer"]
 unique_name_in_owner = true
@@ -427,6 +428,9 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Monolog" parent="CanvasLayer" instance=ExtResource("4_mh4sv")]
+mouse_filter = 2
 
 [node name="Hero" parent="." instance=ExtResource("5_4gx6o")]
 position = Vector2(78, 321)
+baseDefence = 0
+baseGold = 0
